@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userInfo">
+
+	<!--  유저 로그인 시큐리티 -->
+	 <select id="loadUserByUsername" parameterType="String"
+		resultType="UserInfo">
+		SELECT 
+		       CERT_NO certNo,
+		       PERS_NM name,
+		       PERS_USERID username,
+		       PERS_PSWD password,
+		       USER_ST_CD userStCd
+		  FROM MB_MEMB_EMP
+		 WHERE PERS_USERID = #{username}
+	</select>
+</mapper>

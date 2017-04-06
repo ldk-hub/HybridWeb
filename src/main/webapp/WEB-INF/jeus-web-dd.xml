@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jeus-web-dd  xmlns="http://www.tmaxsoft.com/xml/ns/jeus" version="6.0">
+    <!-- <webinf-first>true</webinf-first> -->
+    <res-ref>
+       <jndi-info>
+           <ref-name>jdbc/KMACA</ref-name>
+           <export-name>KMACA</export-name>
+       </jndi-info>
+   </res-ref>
+   
+   <aliasing> 
+<!--      <alias> 
+     	<alias-name>/editor/upload/</alias-name> 
+     	<real-path>/data/Kmaca_uploadFile/</real-path> 
+     </alias>  -->
+     <alias>
+        <alias-name>/upload/</alias-name>
+        <real-path>/home/kmaca/webapps/attach/</real-path>
+     </alias>
+   </aliasing>
+</jeus-web-dd>
