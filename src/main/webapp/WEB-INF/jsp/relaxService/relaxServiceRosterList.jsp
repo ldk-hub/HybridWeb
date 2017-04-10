@@ -27,7 +27,7 @@
 </script>
 <title>LDK 시스템</title>
 </head>
-<body>
+<body background="../image/background.jpg" background-size: auto;>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
@@ -39,7 +39,7 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">LDK시스템</a>
+				<a href="#"><img src ="../image/logo.png" width="150" height="50"/></a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -90,7 +90,10 @@
 					class="form-control">
 			</div>
 			<div class="form-group">
-				<button class="btn btn-primary" id="searchBtn">검색</button>
+				<button class="btn btn-warning" id="searchBtn">검색</button>
+			</div>
+			<div class="form-group"  style="display: right-block;text-align: center;">
+				<button class="btn btn-warning" id="searchBtn">글쓰기</button>
 			</div>
 		</form>
 		<table class="table">
@@ -125,9 +128,7 @@
 		</div>
 		</nav>
 	</div>
-			<div class="form-group"  style="display: center-block;text-align: center;">
-				<button class="btn btn-primary" id="searchBtn">글쓰기</button>
-			</div>
+			
 
 	<!-- Modal -->
 	<div class="modal fade" id="modalPop" tabindex="-1" role="dialog"
