@@ -56,7 +56,7 @@
 							data-toggle="dropdown" role="button" aria-expanded="false">메뉴<span
 								class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a
+							<li><a
 								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">게시판</a></li>
 								<li><a
 								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">만든이</a></li>
@@ -82,26 +82,16 @@
 			action="${pageContext.request.contextPath}/login/loginProcess.do">
 			<div class="row">
 				<div class="page-header">
-					<h2>통합 로그인</h2>
+					<h2>메인 페이지</h2>
 				</div>
 				<div class="login-box well">
-					<div class="form-group">
-						<label for="username">아이디</label> <input name="username" value=''
-							id="username" placeholder="id" type="text" class="form-control" />
-					</div>
-					<div class="form-group">
-						<label for="password">패스워드</label> <input name="password"
-							id="password" value='' placeholder="Password" type="password"
-							class="form-control" />
-					</div>
-					<hr />
 				</div>
 
 			</div>
 			<div class="form-group">
 				<input type="submit"
 					class="btn btn-default btn-login-submit btn-block m-t-md"
-					value="로그인" />
+					value="이동" />
 			</div>
 		</form>
 	</div>

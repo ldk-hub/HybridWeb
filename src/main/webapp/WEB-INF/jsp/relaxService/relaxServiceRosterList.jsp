@@ -27,7 +27,7 @@
 </script>
 <title>LDK 시스템</title>
 </head>
-<body background="../image/background.jpg" background-size: auto;>
+<body  style="background-color:#FFCC66">
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
@@ -49,12 +49,10 @@
 						data-toggle="dropdown" role="button" aria-expanded="false">메뉴<span
 							class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a
-								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">게시판 조회</a></li>
+						<li><a
+								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">게시판</a></li>
 								<li><a
 								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">만든이</a></li>
-								<li><a
-								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">사이트소개</a></li>
 								<li><a
 								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">계산기</a></li>
 						</ul></li>
