@@ -12,6 +12,9 @@
 <link
 	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
+<link
+	href="${pageContext.request.contextPath}/bootstrap/css/business-casual.css"
+	rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 <script
@@ -25,9 +28,10 @@
 		document.frm.submit();
 	}
 </script>
-<title>LDK 시스템</title>
+<title>Diet System</title>
 </head>
-<body  style="background-color:#FFCC66">
+<body>
+<div class="brand">Diet System</div>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
@@ -35,13 +39,14 @@
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar-collapse-1">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
 				</button>
-				<a href="#"><img src ="../image/logo.png" width="150" height="50"/></a>
+				<a href="#"><img src ="../image/logo.png" width="150" height="50"/>
 			</div>
-
+			<nav class="navbar navbar-default" role="navigation">
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="navbar-collapse collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav">
@@ -52,9 +57,9 @@
 						<li><a
 								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">게시판</a></li>
 								<li><a
-								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">만든이</a></li>
+								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">사이트 소개</a></li>
 								<li><a
-								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">계산기</a></li>
+								href="${pageContext.request.contextPath}/relaxService/ThirdPage.do">계산기</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -64,11 +69,48 @@
 					</sec:authorize>
 				</ul>
 			</div>
+			</nav>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid --> </nav>
 	</div>
 	<div class="container">
+		<!-- 슬라이드 박스 -->
+		<div class="box">
+			<div class="col-lg-12 text-center">
+				<div id="carousel-example-generic" class="carousel slide">
+					<ol class="carousel-indicators hidden-xs">
+						<li data-target="#carousel-example-generic" data-slide-to="0"
+							class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					</ol>
+					<!-- 슬라이드 이미지 삽입 -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<img class="img-reponsive img-full" src="../image/slide-1.jpg" alt="Los Angeles">
+						</div>
+
+						<div class="item">
+							<img class="img-reponsive img-full" src="../image/slide-3.jpg" alt="Chicago">
+						</div>
+
+						<div class="item">
+							<img class="img-reponsive img-full" src="../image/slide-2.jpg" alt="New York">
+						</div>
+						<!-- 슬라이드 컨트롤 -->
+						<a class="left carousel-control" href="#carousel-example-generic"
+							data-slide="prev"> 
+							<span class="icon-prev"></span></a>
+						<a class="right carousel-control" href="#carousel-example-generic" 
+							data-slide="next">
+							<span class="icon-next"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 게시판 조회 -->
+	<div class="login-box well">
 		<div class="page-header">
 			<h1>
 				<small>게시판 조회</small>
@@ -125,6 +167,7 @@
 		</ul>
 		</div>
 		</nav>
+	</div>
 	</div>
 			
 
@@ -194,9 +237,26 @@
 		<input type="hidden" name="pageIndex" /> <input type="hidden"
 			name="searchBox" /> <input type="hidden" name="searchCategory" />
 	</form>
+	<!-- 풋터 -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+				<p>Copyright © Website 2017 </p>
+				</div>
+			</div>
+		</div>
+	</footer>
+		<script>
+			$('.carousel').carousel({
+				interval: 5000
+			})
+		</script>
 </body>
 </html>
-<script type="text/javascript">
+
+
+<!--  script type="text/javascript">
 	$('#modalPop')
 			.on(
 					'show.bs.modal',
@@ -306,4 +366,4 @@
 			return str;
 		}
 	}
-</script>
+</script>-->
