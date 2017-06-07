@@ -68,55 +68,59 @@
 					</sec:authorize>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid --> </nav>
+	</nav>
 	</div>
 	<div class="container">
-		<!-- 슬라이드 박스 -->
+		<!-- 네이버 스마트에디터 -->
 		<div class="box">
 			<div class="col-lg-12 text-center">
-				<div id="carousel-example-generic" class="carousel slide">
-					<ol class="carousel-indicators hidden-xs">
-						<li data-target="#carousel-example-generic" data-slide-to="0"
-							class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
-					</ol>
-					<!-- 슬라이드 이미지 삽입 -->
-					<div class="carousel-inner">
-						<div class="item active">
-							<img class="img-reponsive img-full" src="../image/slide-1.jpg" alt="Coffe">
-							<div class="carousel-caption">
-								<h2>Board Page</h2>
-							      </div>      
-						</div>
-
-						<div class="item">
-							<img class="img-reponsive img-full" src="../image/slide-3.jpg" alt="Brunch">
-							<div class="carousel-caption">
-								<h2>Introduce</h2>
-							      </div>
-						</div>
-
-						<div class="item">
-							<img class="img-reponsive img-full" src="../image/slide-2.jpg" alt="I-PAD">
-							<div class="carousel-caption">
-								<h2>Hello?</h2>
-							      </div>
-						</div>
-						<!-- 슬라이드 컨트롤 -->
-						<a class="left carousel-control" href="#carousel-example-generic"
-							data-slide="prev"> 
-							<span class="icon-prev"></span></a>
-						<a class="right carousel-control" href="#carousel-example-generic" 
-							data-slide="next">
-							<span class="icon-next"></span></a>
-					</div>
-				</div>
+			<h2 class="intro-text text-center">WebSite <strong>Developer Introduce</strong></h2>
+			
 			</div>
 		</div>
+	
+	
+	<!-- 지도 API -->
+		<div class="box">
+			<div class="col-lg-12 text-center">
+			<div id="map" style="width:100%;height:400px;margin: auto;">
+				<script>
+					var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+					var options = { //지도를 생성할 때 필요한 기본 옵션
+					center: new daum.maps.LatLng(37.56654, 126.97896), //지도의 중심좌표.
+					level: 3 //지도의 레벨(확대, 축소 정도)
+					};
+					var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+					
+					function panTo() {
+					    // 이동할 위도 경도 위치를 생성합니다 
+					    var moveLatLon = new daum.maps.LatLng(37.56654, 126.97896);
+					    
+					    // 지도 중심을 부드럽게 이동시킵니다
+					    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+					    map.panTo(moveLatLon);            
+					}        
+					// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+					var mapTypeControl = new daum.maps.MapTypeControl();
+
+					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+					// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+					map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+					// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+					var zoomControl = new daum.maps.ZoomControl();
+					map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+				</script>
+				</div>
+				<div class="brand-before">
+				<small>Developer adress : 파주시 </small>
+				</div>
+				 <button class="btn btn-warning" onclick="panTo()">Return Address</button> 
+			</div>
 		</div>
+	</div>
+	
 	<!-- 풋터 -->
 	<footer>
 		<div class="container">

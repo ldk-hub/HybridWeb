@@ -58,7 +58,7 @@
 						<li><a
 						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">Board</a></li>
 						<li><a
-						href="${pageContext.request.contextPath}/relaxService/SecondPage.do">Developer Introduce</a></li>
+						href="${pageContext.request.contextPath}/relaxService/Main.do">Introduce</a></li>
 					</ul>
 					</ul>
 				<!-- /.navbar-collapse -->
@@ -85,14 +85,19 @@
 							id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
+					<div class="form-group">
+						<input type="submit"
+							class="btn btn-warning btn-login-submit btn-block m-t-md"
+							value="로그인" />
+					</div>
 				</div>
-
 			</div>
 			<div class="form-group">
 				<input type="submit"
-					class="btn btn-default btn-login-submit btn-block m-t-md"
-					value="로그인" />
+					class="btn btn-warning btn-block m-t-md"
+					value="회원가입" />
 			</div>
+			
 	</form>
 	</div>
 	<!-- 풋터 -->
