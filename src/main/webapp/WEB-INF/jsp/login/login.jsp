@@ -23,54 +23,44 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="stylesheet" type="text/css" href="../css/title.css">
-<link
-	href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
-
+<link href="${pageContext.request.contextPath}/bootstrap/css/business-casual.css"
+	rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-<title>LDK 시스템</title>
+	
+	
+<title>Diet System</title>
 </head>
-<body  style="background-color:#FFCC66">
+<body>
+<div class="brand">Diet System</div>
 	<div class="contentwrap">
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed"
-						data-toggle="collapse" data-target="#navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
-					</button>
-					<a href="#"><img src ="../image/logo.png" width="150" height="50"/></a>
-				</div>
-
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="navbar-collapse collapse" id="navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="dropdown"><a href="#" class="dropdown-toggle"
-							data-toggle="dropdown" role="button" aria-expanded="false">메뉴<span
-								class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a
-								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">게시판</a></li>
-								<li><a
-								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">만든이</a></li>
-								<li><a
-								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">계산기</a></li>
-						</ul></li>
+		<nav class="navbar navbar-inverse" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+			<a class="navbar-brand" href="#">Diet System</a>
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="navbar-collapse collapse" id="navbar-collapse-1">
+					<ul class="nav navbar-nav navbar-left">
+						<li><a
+						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">Board</a></li>
+						<li><a
+						href="${pageContext.request.contextPath}/relaxService/SecondPage.do">Developer Introduce</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<sec:authorize ifAnyGranted="ROLE_USER">
-							<li><a href="#"> ${user.name }님이 로그인하셨습니다.</a></li>
-							<li><a href="/login/logoutProcess.do">Logout</a></li>
-						</sec:authorize>
 					</ul>
-				</div>
 				<!-- /.navbar-collapse -->
 			</div>
 			<!-- /.container-fluid -->
@@ -81,10 +71,11 @@
 		<form accept-charset="UTF-8" role="form" method="post"
 			action="${pageContext.request.contextPath}/login/loginProcess.do">
 			<div class="row">
+				
+				<div class="box">
 				<div class="page-header">
-					<h2>통합 로그인</h2>
+					<h2>LOGIN</h2>
 				</div>
-				<div class="login-box well">
 					<div class="form-group">
 						<label for="username">아이디</label> <input name="username" value=''
 							id="username" placeholder="id" type="text" class="form-control" />
@@ -94,7 +85,6 @@
 							id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
-					<hr />
 				</div>
 
 			</div>
@@ -103,7 +93,17 @@
 					class="btn btn-default btn-login-submit btn-block m-t-md"
 					value="로그인" />
 			</div>
-		</form>
+	</form>
 	</div>
+	<!-- 풋터 -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+				<p>Copyright © Website 2017 </p>
+				</div>
+			</div>
+		</div>
+	</footer>
 </body>
 </html>

@@ -19,24 +19,29 @@
 <script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript">
-	function movePaging(pageNo) {
-		document.frm.pageIndex.value = pageNo;
-		document.frm.searchBox.value = document.form1.searchBox.value;
-		document.frm.searchCategory.value = document.form1.searchCategory.value;
-		document.frm.action = "<c:url value='/relaxService/getRelaxServiceRosterList.do'/>";
-		document.frm.submit();
-	}
-</script>
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
+<script type="text/javascript" src="../se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		function movePaging(pageNo) {
+			document.frm.pageIndex.value = pageNo;
+			document.frm.searchBox.value = document.form1.searchBox.value;
+			document.frm.searchCategory.value = document.form1.searchCategory.value;
+			document.frm.action = "<c:url value='/relaxService/getRelaxServiceRosterList.do'/>";
+			document.frm.submit();
+		}
+	</script>
+	
+	
 <title>Diet System</title>
 </head>
 <body>
 <div class="brand">Diet System</div>
 	<div class="contentwrap">
-		<nav class="navbar navbar-default" role="navigation">
+		<nav class="navbar navbar-inverse" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
+			<a class="navbar-brand" href="#">Diet System</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span> 
@@ -44,32 +49,23 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#"><img src ="../image/logo.png" width="150" height="50"/>
+				
 			</div>
-			<nav class="navbar navbar-default" role="navigation">
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="navbar-collapse collapse" id="navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-expanded="false">메뉴<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
+					<ul class="nav navbar-nav navbar-left">
 						<li><a
-								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">게시판</a></li>
-								<li><a
-								href="${pageContext.request.contextPath}/relaxService/SecondPage.do">사이트 소개</a></li>
-								<li><a
-								href="${pageContext.request.contextPath}/relaxService/ThirdPage.do">계산기</a></li>
-						</ul></li>
-				</ul>
+						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">Board</a></li>
+						<li><a
+						href="${pageContext.request.contextPath}/relaxService/SecondPage.do">Introduce</a></li>
+					</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<sec:authorize ifAnyGranted="ROLE_USER">
-						<li><a href="#"> ${user.name }님이 로그인하셨습니다.</a></li>
-						<li><a href="/login/logoutProcess.do">Logout</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-user"> ${user.name }</a></li>
+						<li><a href="/MobileVote/login/login.do"><span class="glyphicon glyphicon-log-in"> Logout</a></li>
 					</sec:authorize>
 				</ul>
 			</div>
-			</nav>
 			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid --> </nav>
@@ -88,15 +84,24 @@
 					<!-- 슬라이드 이미지 삽입 -->
 					<div class="carousel-inner">
 						<div class="item active">
-							<img class="img-reponsive img-full" src="../image/slide-1.jpg" alt="Los Angeles">
+							<img class="img-reponsive img-full" src="../image/slide-1.jpg" alt="Coffe">
+							<div class="carousel-caption">
+								<h2>Board Page</h2>
+							      </div>      
 						</div>
 
 						<div class="item">
-							<img class="img-reponsive img-full" src="../image/slide-3.jpg" alt="Chicago">
+							<img class="img-reponsive img-full" src="../image/slide-3.jpg" alt="Brunch">
+							<div class="carousel-caption">
+								<h2>Introduce</h2>
+							      </div>
 						</div>
 
 						<div class="item">
-							<img class="img-reponsive img-full" src="../image/slide-2.jpg" alt="New York">
+							<img class="img-reponsive img-full" src="../image/slide-2.jpg" alt="I-PAD">
+							<div class="carousel-caption">
+								<h2>Hello?</h2>
+							      </div>
 						</div>
 						<!-- 슬라이드 컨트롤 -->
 						<a class="left carousel-control" href="#carousel-example-generic"
@@ -109,7 +114,52 @@
 				</div>
 			</div>
 		</div>
-		<!-- 게시판 조회 -->
+		<!-- 지도 API -->
+		<div class="box">
+			<div class="col-lg-12 text-center">
+			<div id="map" style="width:100%;height:400px;margin: auto;">
+				<script>
+					var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+					var options = { //지도를 생성할 때 필요한 기본 옵션
+					center: new daum.maps.LatLng(37.56654, 126.97896), //지도의 중심좌표.
+					level: 3 //지도의 레벨(확대, 축소 정도)
+					};
+					var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
+					
+					function panTo() {
+					    // 이동할 위도 경도 위치를 생성합니다 
+					    var moveLatLon = new daum.maps.LatLng(37.56654, 126.97896);
+					    
+					    // 지도 중심을 부드럽게 이동시킵니다
+					    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+					    map.panTo(moveLatLon);            
+					}        
+					// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
+					var mapTypeControl = new daum.maps.MapTypeControl();
+
+					// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+					// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+					map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+
+					// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+					var zoomControl = new daum.maps.ZoomControl();
+					map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+				</script>
+				</div>
+				<div class="brand-before">
+				<small>Developer adress : 파주시 </small>
+				</div>
+				<button class="btn btn-warning" id="searchBtn" onclick="panTo()">Return Address</button>
+			</div>
+		</div>
+		<!-- 네이버 스마트에디터 -->
+		<div class="box">
+			<div class="col-lg-12 text-center">
+			<h2 class="intro-text text-center">WebSite <strong>Developer Introduce</strong></h2>
+			
+			</div>
+		</div>
+	<!-- 게시판 조회 -->
 	<div class="login-box well">
 		<div class="page-header">
 			<h1>
@@ -159,6 +209,17 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		
+			<textarea style="width:100%;height:400px;margin: auto;" name="ir1" id="ir1" rows="10" cols="60"></textarea>
+					<script type="text/javascript">
+							var oEditors = [];
+							nhn.husky.EZCreator.createInIFrame({
+							    oAppRef: oEditors,
+							    elPlaceHolder: "ir1",
+							    sSkinURI: "../se2/SmartEditor2Skin.html",
+							    fCreator: "createSEditor2"
+							});
+					</script>
 		<nav>
 		<div class="form-group"  style="display: center-block;text-align: center;">
 		<ul class="pagination">
@@ -227,12 +288,13 @@
 
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
 					<!-- <button type="button" class="btn btn-primary" id="eventComplete">행사완료</button> -->
 				</div>
 			</div>
 		</div>
 	</div>
+	
 	<form name="frm" method="post">
 		<input type="hidden" name="pageIndex" /> <input type="hidden"
 			name="searchBox" /> <input type="hidden" name="searchCategory" />
