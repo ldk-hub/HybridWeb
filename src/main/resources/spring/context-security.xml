@@ -20,7 +20,7 @@
 			access="hasRole('ROLE_USER')" />
 
 		<security:form-login login-page="/login/login.do"
-			login-processing-url="/login/loginProcess.do"  default-target-url="/relaxService/Main.do"
+			login-processing-url="/login/loginProcess.do"  default-target-url="/relaxService/getRelaxServiceRosterList.do"
 			username-parameter="username" password-parameter="password"
 			authentication-success-handler-ref="secureUserLoginSuccessHandler"
 			authentication-failure-handler-ref="secureUserLoginFailureHandler" />
@@ -54,7 +54,7 @@
 	</bean>
 	
 	<bean id="secureUserLoginSuccessHandler" class="kr.or.kmaca.security.handler.CustomLoginSuccessHandler">
-		<property name="defaultUrl" value="/relaxService/Main.do" />
+		<property name="defaultUrl" value="/relaxService/getRelaxServiceRosterList.do" />
 	</bean>
 
 	<bean id="secureUserLoginFailureHandler" class="kr.or.kmaca.security.handler.CustomLoginFailureHandler">

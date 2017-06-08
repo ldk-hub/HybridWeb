@@ -1,16 +1,18 @@
 package kr.or.kmaca.relaxservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
 import kr.or.kmaca.relaxservice.service.RelaxService;
-import kr.or.kmaca.relaxservice.vo.BoardVo;
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
 import kr.or.kmaca.security.vo.UserInfo;
 
@@ -43,21 +45,6 @@ public class RelaxServiceController {
 		return "/relaxService/relaxServiceRosterList";
 	}
 	
-	//메인페이지 호출
-	@RequestMapping(value = "/Main")
-	public String Main(BoardVo BoardVo) throws Exception {
-		return "/relaxService/Main";
-	}
-	//개발자소개
-	@RequestMapping(value = "/Introduce")
-	public String Introduce(BoardVo BoardVo) throws Exception {
-		return "/relaxService/Introduce";
-	}
-	
-	
-	
-	
-	
 	@RequestMapping(value = "/updateAplcProcSt")
 	@ResponseBody
 	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception {
@@ -68,6 +55,7 @@ public class RelaxServiceController {
 	public String updateAplcEtc(ModelMap map, RelaxServiceVo relaxServiceVo) throws Exception {
 		return "/relaxService/relaxServiceRosterList";
 	}
+
 	
 	@RequestMapping(value = "/relaxServiceDetail")
 	@ResponseBody

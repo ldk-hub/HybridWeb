@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.or.kmaca.relaxservice.dao.RelaxServiceDao;
-import kr.or.kmaca.relaxservice.vo.BoardVo;
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
 
 @Repository
@@ -36,10 +35,6 @@ public class RelaxServiceDaoImpl extends SqlSessionDaoSupport implements RelaxSe
 
 	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception {
 		return getSqlSession().update("relaxService.updateAplcProcSt", relaxServiceVo);
-	}
-
-	public List<BoardVo> main(BoardVo boardVo) throws Exception {
-		return getSqlSession().selectList("relaxService.board", boardVo);
 	}
 
 }

@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import kr.or.kmaca.relaxservice.dao.RelaxServiceDao;
 import kr.or.kmaca.relaxservice.service.RelaxService;
-import kr.or.kmaca.relaxservice.vo.BoardVo;
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
 
 @Service
@@ -34,12 +33,6 @@ public class RelaxServiceImpl implements RelaxService{
 
 	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception {
 		return relaxServiceDao.updateAplcProcSt(relaxServiceVo);
-	}
-
-
-
-	public List<BoardVo> main(BoardVo boardVo) throws Exception {
-		return relaxServiceDao.main(boardVo);
 	}
 
 }
