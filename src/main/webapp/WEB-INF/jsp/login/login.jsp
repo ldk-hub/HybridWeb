@@ -99,14 +99,14 @@
 					</div>
 				<!-- 모달 팝업 -->
 				<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
-					aria-labelledby="myModalLabel" aria-hidden="true">
+					aria-labelledby="ModalLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">
 									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 								</button>
-								<h4 class="modal-title" id="myModalLabel">회원가입</h4>
+								<h4 class="modal-title" id="ModalLabel">회원가입</h4>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-warning">저장</button>

@@ -143,8 +143,8 @@
 									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 								</button>
 								<h4 class="modal-title" id="myModalLabel">게시글 쓰기</h4>
-							</div>
-							<textarea style="width:100%;height:400px;margin: auto;" name="ir1" id="ir1" rows="10" cols="60"></textarea>
+								
+								<textarea style="width:100%;height:400px;margin: auto;" name="ir1" id="ir1" rows="10" cols="60"></textarea>
 								<script type="text/javascript">
 											var oEditors = [];
 											nhn.husky.EZCreator.createInIFrame({
@@ -154,7 +154,11 @@
 											    fCreator: "createSEditor2"
 											});
 									</script>
+							</div>
+							
 							<div class="modal-footer">
+							
+							
 								<button type="button" class="btn btn-warning">저장</button>
 								<button type="button" class="btn btn-warning"
 									data-dismiss="modal">닫기</button>
