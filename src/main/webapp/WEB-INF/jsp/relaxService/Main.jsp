@@ -37,7 +37,7 @@
 <body>
 <div class="brand">Diet System</div>
 	<div class="contentwrap">
-		<nav class="navbar navbar-inverse" role="navigation">
+		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -86,19 +86,21 @@
 					<!-- 슬라이드 이미지 삽입 -->
 					<div class="carousel-inner">
 						<div class="item active">
+						<a
+						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">
 							<img class="img-reponsive img-full" src="../image/slide-1.jpg" alt="Coffe">
 							<div class="carousel-caption">
 								<h2>Board Page</h2>
-							      </div>      
+							      </div></a>
 						</div>
-
 						<div class="item">
+						<a
+						href="${pageContext.request.contextPath}/relaxService/Introduce.do">
 							<img class="img-reponsive img-full" src="../image/slide-3.jpg" alt="Brunch">
 							<div class="carousel-caption">
 								<h2>Introduce</h2>
-							      </div>
+							      </div></a>
 						</div>
-
 						<div class="item">
 							<img class="img-reponsive img-full" src="../image/slide-2.jpg" alt="I-PAD">
 							<div class="carousel-caption">
@@ -114,7 +116,10 @@
 							<span class="icon-next"></span></a>
 					</div>
 				</div>
+					<h2 class="brand-before"><small>Welcom to</small></h2>
+					<h1 class="brand-name">Portfolio Site</h1>
 			</div>
+		
 		</div>
 		</div>
 	<!-- 풋터 -->

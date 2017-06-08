@@ -37,7 +37,7 @@
 <body>
 <div class="brand">Diet System</div>
 	<div class="contentwrap">
-		<nav class="navbar navbar-inverse" role="navigation">
+		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -96,17 +96,14 @@
 			<div class="form-group">
 				<button class="btn btn-warning" id="searchBtn">검색</button>
 			</div>
-			<div class="form-group"  style="display: right-block;text-align: center;">
-				<button class="btn btn-warning" id="searchBtn">글쓰기</button>
-			</div>
 		</form>
 		<table class="table">
 			<thead>
 				<tr>
 					<th>순번</th>
-					<th>회원번호</th>
-					<th>이름</th>
-					<th>생년월일</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -123,17 +120,7 @@
 				</c:forEach>
 			</tbody>
 		</table>
-		
-			<textarea style="width:100%;height:400px;margin: auto;" name="ir1" id="ir1" rows="10" cols="60"></textarea>
-					<script type="text/javascript">
-							var oEditors = [];
-							nhn.husky.EZCreator.createInIFrame({
-							    oAppRef: oEditors,
-							    elPlaceHolder: "ir1",
-							    sSkinURI: "../se2/SmartEditor2Skin.html",
-							    fCreator: "createSEditor2"
-							});
-					</script>
+				
 		<nav>
 		<div class="form-group"  style="display: center-block;text-align: center;">
 		<ul class="pagination">
@@ -141,8 +128,42 @@
 				jsFunction="movePaging"  />
 		</ul>
 		</div>
+				<!-- 버튼 -->
+				<div class="form-group"  style="display: right-block;text-align: center;">
+				<button type="button" class="btn btn-warning btn-lg"
+					data-toggle="modal" data-target="#myModal">글쓰기</button>
+					</div>
+				<!-- 모달 팝업 -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">게시글 쓰기</h4>
+							</div>
+							<textarea style="width:100%;height:400px;margin: auto;" name="ir1" id="ir1" rows="10" cols="60"></textarea>
+								<script type="text/javascript">
+											var oEditors = [];
+											nhn.husky.EZCreator.createInIFrame({
+											    oAppRef: oEditors,
+											    elPlaceHolder: "ir1",
+											    sSkinURI: "../se2/SmartEditor2Skin.html",
+											    fCreator: "createSEditor2"
+											});
+									</script>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-warning">저장</button>
+								<button type="button" class="btn btn-warning"
+									data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</nav>
-	</div>
 	</div>
 			
 

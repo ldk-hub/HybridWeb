@@ -37,7 +37,7 @@
 <body>
 <div class="brand">Diet System</div>
 	<div class="contentwrap">
-		<nav class="navbar navbar-inverse" role="navigation">
+		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -75,8 +75,15 @@
 		<!-- 네이버 스마트에디터 -->
 		<div class="box">
 			<div class="col-lg-12 text-center">
+			<hr>
 			<h2 class="intro-text text-center">WebSite <strong>Developer Introduce</strong></h2>
+			<hr>
 			
+			  <p>Developer Name  : LEE DONG OK</p>
+			  <p> E-MAIL : orm6711@gmail.com</p>
+			  <p> address : Korea republic</p>
+			  <p> Develope Career : 18Month</p>
+			  <p> Skill : JAVA,SPRING,Bootstrap,JSP etc...</p>
 			</div>
 		</div>
 	
