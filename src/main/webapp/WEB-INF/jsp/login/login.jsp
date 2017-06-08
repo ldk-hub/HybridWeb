@@ -38,7 +38,7 @@
 <body>
 <div class="brand">Diet System</div>
 	<div class="contentwrap">
-		<nav class="navbar navbar-inverse" role="navigation">
+		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -58,7 +58,7 @@
 						<li><a
 						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">Board</a></li>
 						<li><a
-						href="${pageContext.request.contextPath}/relaxService/SecondPage.do">Developer Introduce</a></li>
+						href="${pageContext.request.contextPath}/relaxService/Main.do">Introduce</a></li>
 					</ul>
 					</ul>
 				<!-- /.navbar-collapse -->
@@ -85,14 +85,38 @@
 							id="password" value='' placeholder="Password" type="password"
 							class="form-control" />
 					</div>
+					<div class="form-group">
+						<input type="submit"
+							class="btn btn-warning btn-login-submit btn-block m-t-md"
+							value="로그인" />
+					</div>
 				</div>
-
 			</div>
-			<div class="form-group">
-				<input type="submit"
-					class="btn btn-default btn-login-submit btn-block m-t-md"
-					value="로그인" />
-			</div>
+			<!-- 버튼 -->
+				<div class="form-group"  style="display: right-block;text-align: center;">
+				<button type="button" class="btn btn-warning btn-lg"
+					data-toggle="modal" data-target="#Modal">회원가입</button>
+					</div>
+				<!-- 모달 팝업 -->
+				<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">회원가입</h4>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-warning">저장</button>
+								<button type="button" class="btn btn-warning"
+									data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			
 	</form>
 	</div>
 	<!-- 풋터 -->
