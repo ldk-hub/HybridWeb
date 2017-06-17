@@ -19,6 +19,26 @@
 	}
 	
 </script>
+
+<script type="text/javascript">
+  function member_insert(){
+	  var id = $('#username_acc').val();
+	  var password = $('#password_acc').val();
+	  var name = $('#name_acc').val();
+	  var email = $('#email_acc').val();
+	  
+	if(id ==""){
+		alert("아이디를 입력하시오.");
+	}else if(password ==""){
+		alert("패스워드를 입력하시오.");
+	}else if(name ==""){
+		alert("이름을 입력하시오.");
+	}else if(email ==""){
+		alert("이메일주소를 입력하시오.");
+	}
+	
+  }
+</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,16 +70,15 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				
+				</div>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="navbar-collapse collapse" id="navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-left">
 						<li><a
-						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">Board</a></li>
+						href="#">Board</a></li>
 						<li><a
-						href="${pageContext.request.contextPath}/relaxService/Main.do">Introduce</a></li>
-					</ul>
+						href="#">Introduce</a></li>
 					</ul>
 				<!-- /.navbar-collapse -->
 			</div>
@@ -88,7 +107,7 @@
 					<div class="form-group">
 						<input type="submit"
 							class="btn btn-warning btn-login-submit btn-block m-t-md"
-							value="로그인" />
+							value="로그인"/>
 					</div>
 				</div>
 			</div>
@@ -108,8 +127,28 @@
 								</button>
 								<h4 class="modal-title" id="ModalLabel">회원가입</h4>
 							</div>
+							<div class="box">
+							<div class="form-group">
+									<label for="username_acc">아이디</label> <input name="username_acc" value=''
+										id="username_acc" placeholder="ID" type="text" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="password_acc">패스워드</label> <input name="password_acc"
+										id="password_acc" value='' placeholder="Password" type="password"
+										class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="name_acc">이름</label> <input name="name_acc" value=''
+										id="name_acc" placeholder="Name" type="text" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="email_acc">이메일</label> <input name="email_acc"
+										id="email_acc" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-warning">저장</button>
+								<button type="button" class="btn btn-warning" OnClick="member_insert()">저장</button>
 								<button type="button" class="btn btn-warning"
 									data-dismiss="modal">닫기</button>
 							</div>

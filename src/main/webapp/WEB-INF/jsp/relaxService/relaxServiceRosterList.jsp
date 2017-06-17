@@ -16,11 +16,11 @@
 	href="${pageContext.request.contextPath}/bootstrap/css/business-casual.css"
 	rel="stylesheet" type="text/css">
 <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
 <script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
-<script type="text/javascript" src="../se2/js/service/HuskyEZCreator.js" charset="utf-8"></script>
 	<script type="text/javascript">
 		function movePaging(pageNo) {
 			document.frm.pageIndex.value = pageNo;
@@ -30,7 +30,6 @@
 			document.frm.submit();
 		}
 	</script>
-	
 	
 <title>Diet System</title>
 </head>
@@ -85,8 +84,8 @@
 			<div class="form-group">
 				<select name="searchCategory" id="searchCategory"
 					class="form-control">
-					<option value='name'>이름</option>
-					<option value='bthday'>생년월일</option>
+					<option value='name'>제목</option>
+					<option value='bthday'>작성자</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -111,11 +110,11 @@
 					<tr>
 						<th scope="row">${list.rnum }</th>
 						<td><a href="#" data-toggle="modal" data-target="#modalPop"
-							data-aplcmgmtno="${list.aplcMgmtNo }">${list.cnsmContNo }</a></td>
+							data-aplcmgmtno="${list.title }">${list.title }</a></td>
 						<td><a href="#" data-toggle="modal" data-target="#modalPop"
-							data-aplcmgmtno="${list.aplcMgmtNo }">${list.aplcPsnNm }</a></td>
+							data-aplcmgmtno="${list.usr }">${list.usr }</a></td>
 						<td><a href="#" data-toggle="modal" data-target="#modalPop"
-							data-aplcmgmtno="${list.aplcMgmtNo }">${list.bthDay }</a></td>
+							data-aplcmgmtno="${list.aplcMgmtNo }">${list.intDate }</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -143,22 +142,22 @@
 									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
 								</button>
 								<h4 class="modal-title" id="myModalLabel">게시글 쓰기</h4>
-								
-								<textarea style="width:100%;height:400px;margin: auto;" name="ir1" id="ir1" rows="10" cols="60"></textarea>
-								<script type="text/javascript">
-											var oEditors = [];
-											nhn.husky.EZCreator.createInIFrame({
-											    oAppRef: oEditors,
-											    elPlaceHolder: "ir1",
-											    sSkinURI: "../se2/SmartEditor2Skin.html",
-											    fCreator: "createSEditor2"
-											});
+								</div>
+									<table class="table">
+										<tr>
+											<th>글제목</th>
+											<td colspan="3"><span id="addr"></span></td>
+										</tr>
+									</table>
+								<textarea id="contents" name="contents"></textarea>
+									<script type="text/javascript">
+										CKEDITOR.replace( 'contents',{
+										customConfig : '/ckeditor/config.js',
+										width: '99%',
+										height: 250
+										});
 									</script>
-							</div>
-							
 							<div class="modal-footer">
-							
-							
 								<button type="button" class="btn btn-warning">저장</button>
 								<button type="button" class="btn btn-warning"
 									data-dismiss="modal">닫기</button>
@@ -169,7 +168,6 @@
 			</div>
 		</nav>
 	</div>
-			
 
 	<!-- Modal -->
 	<div class="modal fade" id="modalPop" tabindex="-1" role="dialog"
@@ -186,47 +184,30 @@
 				<div class="modal-body">
 					<table class="table">
 						<tr>
-							<th>회원번호</th>
-							<td><span id="cnsmContNo"></span></td>
-							<th>접수번호</th>
-							<td><span id="aplcMgmtNo"></span></td>
-						</tr>
-						<tr>
-							<th>이름</th>
+							<th>작성자</th>
 							<td><span id="aplcPsnNm"></span></td>
-							<th>생년월일</th>
+							<th>작성일</th>
 							<td><span id="bthDay"></span></td>
 						</tr>
 						<tr>
-							<th>연락처</th>
+							<th>이메일</th>
 							<td><span id="aplcPsnTel"></span></td>
-							<th>계약금액</th>
+							<th>조회수</th>
 							<td><span id="insuContAmt"></span></td>
 						</tr>
 						<tr>
-							<th>선택상품</th>
-							<td><span id="serviceGood"></span></td>
-							<th>보상금액</th>
-							<td><span id="factCmpnAmt"></span></td>
-						</tr>
-						<tr>
-							<th>행사상태</th>
-							<td><span id="aplcProcStNm"></span></td>
-							<th>가입일</th>
-							<td><span id="payDt"></span></td>
-						</tr>
-						<tr>
-							<th>주소</th>
+							<th>글제목</th>
 							<td colspan="3"><span id="addr"></span></td>
 						</tr>
 						<tr>
-							<th>비고</th>
+							<th>글내용</th>
 							<td colspan="3"><span id="etc"></span></td>
 						</tr>
 					</table>
-
 				</div>
 				<div class="modal-footer">
+					<button type="button" class="btn btn-warning" data-dismiss="modal">수정</button>
+					<button type="button" class="btn btn-warning" data-dismiss="modal">삭제</button>
 					<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
 					<!-- <button type="button" class="btn btn-primary" id="eventComplete">행사완료</button> -->
 				</div>

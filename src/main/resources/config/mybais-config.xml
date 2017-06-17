@@ -5,6 +5,7 @@
  	
     <typeAliases>
         <typeAlias type="kr.or.kmaca.relaxservice.vo.RelaxServiceVo" alias="RelaxServiceVo"></typeAlias>
+        <typeAlias type="kr.or.kmaca.relaxservice.vo.BoardVo" alias="BoardVo"></typeAlias>
         <typeAlias type="kr.or.kmaca.security.vo.UserInfo" alias="UserInfo"></typeAlias>
     </typeAliases>
  

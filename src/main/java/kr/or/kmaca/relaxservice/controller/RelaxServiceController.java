@@ -1,5 +1,7 @@
 package kr.or.kmaca.relaxservice.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,9 +39,11 @@ public class RelaxServiceController {
 		relaxServiceVo.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		relaxServiceVo.setLastIndex(paginationInfo.getLastRecordIndex());
 		
-		//List<RelaxServiceVo> list = relaxService.relaxServiceRosterList(relaxServiceVo);업체수
+		List<RelaxServiceVo> list = relaxService.relaxServiceRosterList(relaxServiceVo);
+		
+		
 		map.put("paginationInfo", paginationInfo);
-		//map.put("result", list);
+		map.put("result", list);
 		return "/relaxService/relaxServiceRosterList";
 	}
 	
@@ -54,11 +58,41 @@ public class RelaxServiceController {
 		return "/relaxService/Introduce";
 	}
 	
+	/*//회원가입
+	@RequestMapping(value = "/loginAccess")
+	@ResponseBody
+	public List<BoardVo> loginAccess(BoardVo boardVo) throws Exception {
+		System.out.println("회원가입"+boardVo);
+		return relaxService.loginAccess(boardVo);
+	}
 	
 	
+		
+	//게시글 삽입
+	@RequestMapping(value = "/insertBoard")
+	@ResponseBody
+	public List<BoardVo> insertBoard(BoardVo boardVo) throws Exception {
+		System.out.println("게시글 삽입"+boardVo);
+		return relaxService.insertBoard(boardVo);
+	}
+	//게시글 수정
+	@RequestMapping(value = "/updateBoard")
+	@ResponseBody
+	public List<BoardVo> updateBoard(BoardVo boardVo) throws Exception {
+		System.out.println("게시글 수정"+boardVo);
+		return relaxService.updateBoard(boardVo);
+	}
+	//게시글 삭제
+	@RequestMapping(value = "/deleteBoard")
+	@ResponseBody
+	public List<BoardVo> deleteBoard(BoardVo boardVo) throws Exception {
+		System.out.println("게시글 삭제"+boardVo);
+		return relaxService.deleteBoard(boardVo);
+	}
+	*/
 	
 	
-	@RequestMapping(value = "/updateAplcProcSt")
+	/*@RequestMapping(value = "/updateAplcProcSt")
 	@ResponseBody
 	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception {
 		return relaxService.updateAplcProcSt(relaxServiceVo);
@@ -74,6 +108,6 @@ public class RelaxServiceController {
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {
 		System.out.println(relaxServiceVo);
 		return relaxService.relaxServiceDetail(relaxServiceVo);
-	}
+	}*/
 	
 }

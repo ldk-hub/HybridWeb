@@ -41,5 +41,34 @@ public class RelaxServiceImpl implements RelaxService{
 	public List<BoardVo> main(BoardVo boardVo) throws Exception {
 		return relaxServiceDao.main(boardVo);
 	}
+	
+
+
+	/*@Override
+	public List<BoardVo> loginAccess(BoardVo boardVo) throws Exception {
+		return relaxServiceDao.loginAccess(boardVo);
+	}
+	
+	
+
+	@Override
+	public List<BoardVo> insertBoard(BoardVo boardVo) throws Exception {
+		return relaxServiceDao.insertBoard(boardVo);
+	}
+
+
+	@Override
+	public List<BoardVo> updateBoard(BoardVo boardVo) throws Exception {
+		return relaxServiceDao.updateBoard(boardVo);
+	}
+
+
+	@Override
+	public List<BoardVo> deleteBoard(BoardVo boardVo) throws Exception {
+		return relaxServiceDao.deleteBoard(boardVo);
+	}
+*/
+
+	
 
 }

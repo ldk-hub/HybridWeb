@@ -16,4 +16,15 @@ public interface RelaxService {
 	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception;
 	
 	public List<BoardVo> main(BoardVo boardVo) throws Exception;
+	
+
+	/*public List<BoardVo> loginAccess(BoardVo boardVo)throws Exception;
+
+	public List<BoardVo> insertBoard(BoardVo boardVo)throws Exception;
+
+	public List<BoardVo> updateBoard(BoardVo boardVo)throws Exception;
+
+	public List<BoardVo> deleteBoard(BoardVo boardVo)throws Exception;
+
+	*/
 }

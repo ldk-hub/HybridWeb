@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="relaxService">
-
-	<!-- 계약사 로그인 조회 -->
-	<select id="relaxServiceRosterList" parameterType="RelaxServiceVo"
+		
+		<!-- 게시글 조회 -->
+		<select id="relaxServiceRosterList" parameterType="RelaxServiceVo"
+		resultType="RelaxServiceVo">
+		select SEQ seq,
+			  TITLE title,
+			  CONTENT content,
+			  INT_DATE intDate,
+			  UPT_DATE uptDate,
+			  USER_CNT usrCnt,
+			  USR usr
+		FROM TEST
+		</select>
+		
+	 <!-- 계약사 로그인 조회 -->
+	<!-- <select id="relaxServiceRosterList" parameterType="RelaxServiceVo"
 		resultType="RelaxServiceVo">
 
 		SELECT *
@@ -39,7 +52,7 @@
 		         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})
 		 WHERE rnum >= #{firstIndex} + 1
 		 ]]>
-	</select>
+	</select> -->
 
 	<select id="relaxServiceRosterCnt" parameterType="RelaxServiceVo"
 		resultType="int">

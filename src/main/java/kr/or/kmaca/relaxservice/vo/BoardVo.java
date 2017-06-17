@@ -1,18 +1,22 @@
 package kr.or.kmaca.relaxservice.vo;
 
 public class BoardVo {
-	private String certNo;
+	
+	private int seq;
 	private String title;
 	private String content;
-	private String usrCnt;
-	private String payDt;
+	private String intDate;
+	private String uptDate;
+	private int usrCnt;
 	private String usr;
 	
-	public String getCertNo() {
-		return certNo;
+	
+	
+	public int getSeq() {
+		return seq;
 	}
-	public void setCertNo(String certNo) {
-		this.certNo = certNo;
+	public void setSeq(int seq) {
+		this.seq = seq;
 	}
 	public String getTitle() {
 		return title;
@@ -26,17 +30,23 @@ public class BoardVo {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public String getUsrCnt() {
+	public String getIntDate() {
+		return intDate;
+	}
+	public void setIntDate(String intDate) {
+		this.intDate = intDate;
+	}
+	public String getUptDate() {
+		return uptDate;
+	}
+	public void setUptDate(String uptDate) {
+		this.uptDate = uptDate;
+	}
+	public int getUsrCnt() {
 		return usrCnt;
 	}
-	public void setUsrCnt(String usrCnt) {
+	public void setUsrCnt(int usrCnt) {
 		this.usrCnt = usrCnt;
-	}
-	public String getPayDt() {
-		return payDt;
-	}
-	public void setPayDt(String payDt) {
-		this.payDt = payDt;
 	}
 	public String getUsr() {
 		return usr;
@@ -44,4 +54,5 @@ public class BoardVo {
 	public void setUsr(String usr) {
 		this.usr = usr;
 	}
+	
 }
