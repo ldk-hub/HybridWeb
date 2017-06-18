@@ -224,7 +224,16 @@ public class RelaxServiceVo {
 	private String uptDate;
 	private int usrCnt;
 	private String usr;
+	private String email;
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public int getSeq() {
 		return seq;
 	}

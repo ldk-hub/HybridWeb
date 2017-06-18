@@ -11,6 +11,7 @@
 			  INT_DATE intDate,
 			  UPT_DATE uptDate,
 			  USER_CNT usrCnt,
+			  EMAIL email,
 			  USR usr
 		FROM TEST
 		</select>
@@ -88,6 +89,42 @@
 
 	<select id="relaxServiceDetail" parameterType="RelaxServiceVo"
 		resultType="RelaxServiceVo">
+		select SEQ seq,
+			  TITLE title,
+			  CONTENT content,
+			  INT_DATE intDate,
+			  UPT_DATE uptDate,
+			  USER_CNT usrCnt,
+			  EMAIL email,
+			  USR usr
+		FROM TEST
+		WHERE SEQ = #{seq}
+	</select>
+	
+	<select id="relaxServiceSearch" parameterType="RelaxServiceVo"
+		resultType="RelaxServiceVo">
+		select SEQ seq,
+			  TITLE title,
+			  CONTENT content,
+			  INT_DATE intDate,
+			  UPT_DATE uptDate,
+			  USER_CNT usrCnt,
+			  EMAIL email,
+			  USR usr
+		FROM TEST
+		WHERE USR = #{usr}
+	</select>
+	
+	<!-- 데이터 수정 -->
+
+	<update id="updateAplcProcSt" parameterType="RelaxServiceVo">
+		UPDATE CL_CNSM_ACPT
+		SET APLC_PROC_ST = '910' WHERE APLC_MGMT_NO = #{aplcMgmtNo} AND
+		APLC_PROC_ST = '710'
+	</update>
+	
+	<!--<select id="relaxServiceDetail" parameterType="RelaxServiceVo"
+		resultType="RelaxServiceVo">
 		SELECT CL.APLC_MGMT_NO aplcMgmtNo,
 		CL.CNSM_CONT_NO
 		cnsmContNo,
@@ -122,20 +159,5 @@
 		AND CL.APLC_PROC_ST IN ('710','910','1010')
 		AND CL.PAY_ST = 'PAY'
 		AND CL.APLC_MGMT_NO = #{aplcMgmtNo}
-	</select>
-	
-	<!-- 데이터 수정 -->
-
-	<update id="updateAplcProcSt" parameterType="RelaxServiceVo">
-		UPDATE CL_CNSM_ACPT
-		SET APLC_PROC_ST = '910' WHERE APLC_MGMT_NO = #{aplcMgmtNo} AND
-		APLC_PROC_ST = '710'
-	</update>
-	
-	
-	
-	
-	
-	
-	
+	</select> -->
 </mapper>

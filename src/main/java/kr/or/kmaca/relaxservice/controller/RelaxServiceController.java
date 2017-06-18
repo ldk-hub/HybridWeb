@@ -101,13 +101,13 @@ public class RelaxServiceController {
 	@RequestMapping(value = "/updateAplcEtc")
 	public String updateAplcEtc(ModelMap map, RelaxServiceVo relaxServiceVo) throws Exception {
 		return "/relaxService/relaxServiceRosterList";
-	}
+	}*/
 	
 	@RequestMapping(value = "/relaxServiceDetail")
 	@ResponseBody
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {
 		System.out.println(relaxServiceVo);
 		return relaxService.relaxServiceDetail(relaxServiceVo);
-	}*/
+	}
 	
 }

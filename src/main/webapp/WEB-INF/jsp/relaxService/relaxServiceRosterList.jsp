@@ -185,23 +185,23 @@
 					<table class="table">
 						<tr>
 							<th>작성자</th>
-							<td><span id="aplcPsnNm"></span></td>
+							<td><span id="usr"></span></td>
 							<th>작성일</th>
-							<td><span id="bthDay"></span></td>
+							<td><span id="intDate"></span></td>
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td><span id="aplcPsnTel"></span></td>
+							<td><span id="email"></span></td>
 							<th>조회수</th>
-							<td><span id="insuContAmt"></span></td>
+							<td><span id="usrCnt"></span></td>
 						</tr>
 						<tr>
 							<th>글제목</th>
-							<td colspan="3"><span id="addr"></span></td>
+							<td colspan="3"><span id="title"></span></td>
 						</tr>
 						<tr>
 							<th>글내용</th>
-							<td colspan="3"><span id="etc"></span></td>
+							<td colspan="3"><span id="content"></span></td>
 						</tr>
 					</table>
 				</div>
@@ -240,7 +240,7 @@
 </html>
 
 
-<!--  script type="text/javascript">
+<script type="text/javascript">
 	$('#modalPop')
 			.on(
 					'show.bs.modal',
@@ -350,4 +350,4 @@
 			return str;
 		}
 	}
-</script>-->
+</script>
