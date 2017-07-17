@@ -49,7 +49,6 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 				</button>
-				
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="navbar-collapse collapse" id="navbar-collapse-1">
@@ -72,7 +71,7 @@
 	</nav>
 	</div>
 	<div class="container">
-		<!-- 네이버 스마트에디터 -->
+		<!-- CK에디터 -->
 		<div class="box">
 			<div class="col-lg-12 text-center">
 			<hr>
@@ -87,8 +86,7 @@
 			</div>
 		</div>
 	
-	
-	<!-- 지도 API -->
+		<!-- 지도 API -->
 		<div class="box">
 			<div class="col-lg-12 text-center">
 			<div id="map" style="width:100%;height:400px;margin: auto;">
@@ -121,7 +119,7 @@
 				</script>
 				</div>
 				<div class="brand-before">
-				<small>Developer adress : 파주시 </small>
+				<small>Developer adress : 서울시 </small>
 				</div>
 				 <button class="btn btn-warning" onclick="panTo()">Return Address</button> 
 			</div>

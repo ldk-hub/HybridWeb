@@ -16,44 +16,7 @@
 		FROM TEST
 		</select>
 		
-	 <!-- 계약사 로그인 조회 -->
-	<!-- <select id="relaxServiceRosterList" parameterType="RelaxServiceVo"
-		resultType="RelaxServiceVo">
-
-		SELECT *
-		FROM (SELECT ROWNUM rnum, A.*
-		FROM (SELECT CL.APLC_MGMT_NO aplcMgmtNo,
-		CL.CNSM_CONT_NO cnsmContNo,
-		APLC_PSN_NM aplcPsnNm,
-		GU.BTH_DAY bthDay
-		FROM CL_CNSM_ACPT CL,
-		CL_RELAX_SERVICE RS,
-		CL_SERVICE_FLAG SF,
-		GU_CNSM_CONT_M GU
-		WHERE CL.APLC_MGMT_NO = SF.APLC_MGMT_NO
-		AND GU.CERT_NO = CL.CERT_NO
-		AND GU.CNSM_CONT_NO = CL.CNSM_CONT_NO
-		AND GU.AID_NO = CL.AID_NO
-		AND RS.FLAG_SEQ_NO = SF.FLAG_SEQ_NO
-		AND SF.FLAG = 'Y'
-		AND SF.SERVICE_NAME = 'RS'
-		AND CL.APLC_PROC_ST IN ('710', '910', '1010')
-		AND CL.PAY_ST = 'PAY'
-		AND RS.SERVICE_CERT_NO = #{certNo}
-		<if test="searchBox != null and searchBox != ''">
-			<if test="searchCategory == 'name'">
-				AND CL.APLC_PSN_NM = #{searchBox}
-			</if>
-			<if test="searchCategory == 'bthday'">
-				AND GU.BTH_DAY = #{searchBox}
-			</if>
-		</if>
-		                       <![CDATA[
-		                       ) A
-		         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})
-		 WHERE rnum >= #{firstIndex} + 1
-		 ]]>
-	</select> -->
+	 
 
 	<select id="relaxServiceRosterCnt" parameterType="RelaxServiceVo"
 		resultType="int">
@@ -116,12 +79,52 @@
 	</select>
 	
 	<!-- 데이터 수정 -->
-
 	<update id="updateAplcProcSt" parameterType="RelaxServiceVo">
 		UPDATE CL_CNSM_ACPT
 		SET APLC_PROC_ST = '910' WHERE APLC_MGMT_NO = #{aplcMgmtNo} AND
 		APLC_PROC_ST = '710'
 	</update>
+	
+	
+	
+	<!-- 계약사 로그인 조회 -->
+	<!-- <select id="relaxServiceRosterList" parameterType="RelaxServiceVo"
+		resultType="RelaxServiceVo">
+
+		SELECT *
+		FROM (SELECT ROWNUM rnum, A.*
+		FROM (SELECT CL.APLC_MGMT_NO aplcMgmtNo,
+		CL.CNSM_CONT_NO cnsmContNo,
+		APLC_PSN_NM aplcPsnNm,
+		GU.BTH_DAY bthDay
+		FROM CL_CNSM_ACPT CL,
+		CL_RELAX_SERVICE RS,
+		CL_SERVICE_FLAG SF,
+		GU_CNSM_CONT_M GU
+		WHERE CL.APLC_MGMT_NO = SF.APLC_MGMT_NO
+		AND GU.CERT_NO = CL.CERT_NO
+		AND GU.CNSM_CONT_NO = CL.CNSM_CONT_NO
+		AND GU.AID_NO = CL.AID_NO
+		AND RS.FLAG_SEQ_NO = SF.FLAG_SEQ_NO
+		AND SF.FLAG = 'Y'
+		AND SF.SERVICE_NAME = 'RS'
+		AND CL.APLC_PROC_ST IN ('710', '910', '1010')
+		AND CL.PAY_ST = 'PAY'
+		AND RS.SERVICE_CERT_NO = #{certNo}
+		<if test="searchBox != null and searchBox != ''">
+			<if test="searchCategory == 'name'">
+				AND CL.APLC_PSN_NM = #{searchBox}
+			</if>
+			<if test="searchCategory == 'bthday'">
+				AND GU.BTH_DAY = #{searchBox}
+			</if>
+		</if>
+		                       <![CDATA[
+		                       ) A
+		         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})
+		 WHERE rnum >= #{firstIndex} + 1
+		 ]]>
+	</select> -->
 	
 	<!--<select id="relaxServiceDetail" parameterType="RelaxServiceVo"
 		resultType="RelaxServiceVo">
