@@ -116,7 +116,7 @@
 							<span class="icon-next"></span></a>
 					</div>
 				</div>
-					<h2 class="brand-before"><small>Welcom to</small></h2>
+					<h2 class="brand-before"><small>Welcome to</small></h2>
 					<h1 class="brand-name">Portfolio Site</h1>
 			</div>
 		

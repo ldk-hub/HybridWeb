@@ -34,7 +34,7 @@ public class RelaxServiceController {
         paginationInfo.setCurrentPageNo(Integer.parseInt(relaxServiceVo.getPageIndex()));
         paginationInfo.setRecordCountPerPage(relaxServiceVo.getRecordCountPerPage());
         paginationInfo.setPageSize(5);
-		//paginationInfo.setTotalRecordCount( relaxService.relaxServiceRosterCnt(relaxServiceVo) ); 계약사별 카운팅갯수
+		//paginationInfo.setTotalRecordCount( relaxService.relaxServiceRosterCnt(relaxServiceVo) ); 
 		
 		relaxServiceVo.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		relaxServiceVo.setLastIndex(paginationInfo.getLastRecordIndex());
@@ -58,55 +58,10 @@ public class RelaxServiceController {
 		return "/relaxService/Introduce";
 	}
 	
-	/*//회원가입
-	@RequestMapping(value = "/loginAccess")
-	@ResponseBody
-	public List<BoardVo> loginAccess(BoardVo boardVo) throws Exception {
-		System.out.println("회원가입"+boardVo);
-		return relaxService.loginAccess(boardVo);
-	}
-	
-	
-		
-	//게시글 삽입
-	@RequestMapping(value = "/insertBoard")
-	@ResponseBody
-	public List<BoardVo> insertBoard(BoardVo boardVo) throws Exception {
-		System.out.println("게시글 삽입"+boardVo);
-		return relaxService.insertBoard(boardVo);
-	}
-	//게시글 수정
-	@RequestMapping(value = "/updateBoard")
-	@ResponseBody
-	public List<BoardVo> updateBoard(BoardVo boardVo) throws Exception {
-		System.out.println("게시글 수정"+boardVo);
-		return relaxService.updateBoard(boardVo);
-	}
-	//게시글 삭제
-	@RequestMapping(value = "/deleteBoard")
-	@ResponseBody
-	public List<BoardVo> deleteBoard(BoardVo boardVo) throws Exception {
-		System.out.println("게시글 삭제"+boardVo);
-		return relaxService.deleteBoard(boardVo);
-	}
-	*/
-	
-	
-	/*@RequestMapping(value = "/updateAplcProcSt")
-	@ResponseBody
-	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception {
-		return relaxService.updateAplcProcSt(relaxServiceVo);
-	}
-	
-	@RequestMapping(value = "/updateAplcEtc")
-	public String updateAplcEtc(ModelMap map, RelaxServiceVo relaxServiceVo) throws Exception {
-		return "/relaxService/relaxServiceRosterList";
-	}*/
-	
+	//게시글 상세 내용
 	@RequestMapping(value = "/relaxServiceDetail")
 	@ResponseBody
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {
-		System.out.println(relaxServiceVo);
 		return relaxService.relaxServiceDetail(relaxServiceVo);
 	}
 	

@@ -5,40 +5,51 @@
 	uri="http://www.springframework.org/security/tags"%>
 	
 <sec:authentication var="user" property="principal" />
-<c:if test="${param.error == '1'}">
-	<c:set var="msg" value="아이디 또는 비밀번호가 틀렸습니다."></c:set>
-</c:if>
-<c:if test="${param.error == '999'}">
-	<c:set var="msg" value="관리자에게 문의하시기 바랍니다."></c:set>
-</c:if>
+	<c:if test="${param.error == '1'}">
+		<c:set var="msg" value="아이디 또는 비밀번호가 틀렸습니다."></c:set>
+	</c:if>
+	<c:if test="${param.error == '999'}">
+		<c:set var="msg" value="관리자에게 문의하시기 바랍니다."></c:set>
+	</c:if>
 <script type="text/javascript">
 	var msg = "${msg}";
 
 	if (msg != "" && msg != null) {
 		alert(msg);
 	}
-	
 </script>
 
 <script type="text/javascript">
   function member_insert(){
-	  var id = $('#username_acc').val();
+	  var id = $('#userid_acc').val();
 	  var password = $('#password_acc').val();
 	  var name = $('#name_acc').val();
 	  var email = $('#email_acc').val();
-	  
-	if(id ==""){
-		alert("아이디를 입력하시오.");
-	}else if(password ==""){
-		alert("패스워드를 입력하시오.");
-	}else if(name ==""){
-		alert("이름을 입력하시오.");
-	}else if(email ==""){
-		alert("이메일주소를 입력하시오.");
-	}
-	
+			if(id ==""){
+				alert("아이디를 입력하시오.");
+			}else if(password ==""){
+				alert("패스워드를 입력하시오.");
+			}else if(name ==""){
+				alert("이름을 입력하시오.");
+			}else if(email ==""){
+				alert("이메일주소를 입력하시오.");
+			}
+					$.ajax({
+						url : '${pageContext.request.contextPath}/login/insertId.do',
+						data : param,
+						dataType : 'json',
+						type : 'POST',
+						success : function(data) {
+							alert("회원가입 완료.");
+							$("#Modal").hide(); 
+						},
+						error : function(data) {
+							alert("오류입니다.");
+						}
+					});
   }
 </script>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +62,6 @@
 <script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
-	
 	
 <title>Diet System</title>
 </head>
@@ -129,8 +139,8 @@
 							</div>
 							<div class="box">
 							<div class="form-group">
-									<label for="username_acc">아이디</label> <input name="username_acc" value=''
-										id="username_acc" placeholder="ID" type="text" class="form-control" />
+									<label for="userid_acc">아이디</label> <input name="userid_acc" value=''
+										id="userid_acc" placeholder="ID" type="text" class="form-control" />
 								</div>
 								<div class="form-group">
 									<label for="password_acc">패스워드</label> <input name="password_acc"
@@ -155,7 +165,6 @@
 						</div>
 					</div>
 				</div>
-			
 	</form>
 	</div>
 	<!-- 풋터 -->

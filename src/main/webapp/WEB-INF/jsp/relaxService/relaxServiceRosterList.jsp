@@ -103,18 +103,18 @@
 					<th>제목</th>
 					<th>작성자</th>
 					<th>작성일</th>
+					<th>조회수</th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${result}" var="list">
 					<tr>
-						<th scope="row">${list.rnum }</th>
+						<th scope="row">${list.seq }</th>
 						<td><a href="#" data-toggle="modal" data-target="#modalPop"
-							data-aplcmgmtno="${list.title }">${list.title }</a></td>
-						<td><a href="#" data-toggle="modal" data-target="#modalPop"
-							data-aplcmgmtno="${list.usr }">${list.usr }</a></td>
-						<td><a href="#" data-toggle="modal" data-target="#modalPop"
-							data-aplcmgmtno="${list.aplcMgmtNo }">${list.intDate }</a></td>
+							data-aplcmgmtno="${list.seq }">${list.title }</a></td>
+							<th scope="row">${list.usr }</th>
+							<th scope="row">${list.intDate }</th>
+							<th scope="row">${list.usrCnt }</th>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -145,8 +145,10 @@
 								</div>
 									<table class="table">
 										<tr>
-											<th>글제목</th>
-											<td colspan="3"><span id="addr"></span></td>
+											<th>제목</th>
+											<td colspan="2"><input name="title" value=''
+										id="title" placeholder="제목을 입력하시오." type="text" class="form-control" /></td>
+											 
 										</tr>
 									</table>
 								<textarea id="contents" name="contents"></textarea>
@@ -191,9 +193,7 @@
 						</tr>
 						<tr>
 							<th>이메일</th>
-							<td><span id="email"></span></td>
-							<th>조회수</th>
-							<td><span id="usrCnt"></span></td>
+							<td colspan="3"><span id="email"></span></td>
 						</tr>
 						<tr>
 							<th>글제목</th>
@@ -239,21 +239,17 @@
 </body>
 </html>
 
-
 <script type="text/javascript">
-	$('#modalPop')
-			.on(
-					'show.bs.modal',
+	$('#modalPop').on('show.bs.modal',
 					function(event) {
-						var button = $(event.relatedTarget) // Button that triggered the modal
-						var aplcMgmtNo = button.data('aplcmgmtno'); // Extract info from data-* attributes
+						var button = $(event.relatedTarget); // Button that triggered the modal
+						var aplcMgmtNo = button.data('aplcmgmtno');
 						var modal = $(this);
 						// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 						// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
 						//callAjax(form, url, target, type, returnType, data, contentType, jsonpCallback, processData, crossDomain, async);
 						var param = new Object();
-						param.aplcMgmtNo = aplcMgmtNo;
-
+						param.seq = aplcMgmtNo;
 						/* var result = callAjax(
 								null,
 								'${pageContext.request.contextPath}/relaxService/relaxServiceDetail.do',
@@ -264,7 +260,6 @@
 									'New message to ' + data.aplcMgmtNo);
 							modal.find('.modal-body input').val(aplcMgmtNo);
 						}); */
-
 						$
 								.ajax({
 									url : '${pageContext.request.contextPath}/relaxService/relaxServiceDetail.do',
@@ -272,45 +267,25 @@
 									dataType : 'json',
 									type : 'POST',
 									success : function(data) {
-										modal.find('#cnsmContNo').text(
-												defaultString(data.cnsmContNo));
-										modal.find('#aplcMgmtNo').text(
-												defaultString(data.aplcMgmtNo));
-										modal.find('#aplcPsnNm').text(
-												defaultString(data.aplcPsnNm));
-										modal.find('#bthDay').text(
-												defaultString(data.bthDay));
-										modal.find('#aplcPsnTel').text(
-												defaultString(data.aplcPsnTel));
-										modal
-												.find('#insuContAmt')
-												.text(
-														defaultString(data.insuContAmt));
-										modal
-												.find('#serviceGood')
-												.text(
-														defaultString(data.serviceGood));
-										modal
-												.find('#aplcProcStNm')
-												.text(
-														defaultString(data.aplcProcStNm));
-										modal
-												.find('#factCmpnAmt')
-												.text(
-														defaultString(data.factCmpnAmt));
-										modal.find('#addr').text(
-												defaultString(data.addr));
-										modal.find('#payDt').text(
-												defaultString(data.payDt));
-										modal.find('#etc').text(
-												defaultString(data.etc));
+										modal.find('#usr').text(
+												defaultString(data.usr));
+										modal.find('#intDate').text(
+												defaultString(data.intDate));
+										modal.find('#email').text(
+												defaultString(data.email));
+										modal.find('#usrCnt').text(
+												defaultString(data.usrCnt));
+										modal.find('#title').text(
+												defaultString(data.title));
+										modal.find('#content').text(
+												defaultString(data.content));
 									},
 									error : function(data) {
 										alert("오류입니다.")
 									}
 								});
 					});
-	$('#eventComplete')
+	/* $('#eventComplete')
 			.on(
 					'click',
 					function(event) {
@@ -329,7 +304,7 @@
 											alert("게시판처리가 완료 되었습니다.");
 											movePaging(pageIndex);
 										} else if (data == 0) {
-											alert("게시판처리가 완료, 정산완료되었습니다.");
+											alert("게시판처리가 완료.");
 											movePaging(pageIndex);
 										}
 									},
@@ -337,7 +312,7 @@
 										alert("오류입니다.")
 									}
 								});
-					});
+					}); */
 
 	$('#searchBtn').on('click', function(event) {
 		movePaging("${param.pageIndex}");

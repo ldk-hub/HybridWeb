@@ -23,6 +23,7 @@ public class RelaxServiceImpl implements RelaxService{
 
 
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ (relaxServiceVo));
 		return relaxServiceDao.relaxServiceDetail(relaxServiceVo);
 	}
 
