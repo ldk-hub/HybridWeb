@@ -23,7 +23,7 @@ public class UserInfoDaoImpl
   
   public UserInfo loadUserByUsername(String username)
   {
-    System.out.println(username);
+    System.out.println("접근자 이름"+username);
     return (UserInfo)super.getSqlSession().selectOne("userInfo.loadUserByUsername", username);
   }
 }

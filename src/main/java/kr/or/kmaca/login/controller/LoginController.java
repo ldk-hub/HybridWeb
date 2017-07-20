@@ -22,7 +22,6 @@ public class LoginController {
 	//회원가입
 	@RequestMapping(value = "/insertId")
 	public void insertId(ModelMap map) throws Exception {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+map);
 		loginService.insertId(map);
 	}
 	

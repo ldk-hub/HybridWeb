@@ -27,38 +27,39 @@ public class RelaxServiceController {
 	public String getRelaxServiceRosterList(ModelMap map, RelaxServiceVo relaxServiceVo) throws Exception {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		UserInfo userInfo = (UserInfo) authentication.getPrincipal();
-		
-		//전자정부프레임워크 페이징 처리
+
+		// 전자정부프레임워크 페이징 처리
 		relaxServiceVo.setCertNo(userInfo.getCertNo());
 		PaginationInfo paginationInfo = new PaginationInfo();
-        paginationInfo.setCurrentPageNo(Integer.parseInt(relaxServiceVo.getPageIndex()));
-        paginationInfo.setRecordCountPerPage(relaxServiceVo.getRecordCountPerPage());
-        paginationInfo.setPageSize(5);
-		//paginationInfo.setTotalRecordCount( relaxService.relaxServiceRosterCnt(relaxServiceVo) ); 
-		
+		paginationInfo.setCurrentPageNo(Integer.parseInt(relaxServiceVo.getPageIndex()));
+		paginationInfo.setRecordCountPerPage(relaxServiceVo.getRecordCountPerPage());
+		paginationInfo.setPageSize(5);
+		paginationInfo.setTotalRecordCount(relaxService.relaxServiceRosterCnt(relaxServiceVo));
+
 		relaxServiceVo.setFirstIndex(paginationInfo.getFirstRecordIndex());
 		relaxServiceVo.setLastIndex(paginationInfo.getLastRecordIndex());
-		
+
 		List<RelaxServiceVo> list = relaxService.relaxServiceRosterList(relaxServiceVo);
-		
-		
+
+		System.out.println("222222222222222222222222222" + list);
 		map.put("paginationInfo", paginationInfo);
 		map.put("result", list);
 		return "/relaxService/relaxServiceRosterList";
 	}
-	
+
 	//메인페이지 호출
 	@RequestMapping(value = "/Main")
 	public String Main(BoardVo BoardVo) throws Exception {
 		return "/relaxService/Main";
 	}
-	//개발자소개
+
+	// 개발자소개
 	@RequestMapping(value = "/Introduce")
 	public String Introduce(BoardVo BoardVo) throws Exception {
 		return "/relaxService/Introduce";
 	}
-	
-	//게시글 상세 내용
+
+	// 게시글 상세 내용
 	@RequestMapping(value = "/relaxServiceDetail")
 	@ResponseBody
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {

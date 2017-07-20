@@ -23,7 +23,6 @@ public class RelaxServiceImpl implements RelaxService{
 
 
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ (relaxServiceVo));
 		return relaxServiceDao.relaxServiceDetail(relaxServiceVo);
 	}
 
@@ -37,39 +36,8 @@ public class RelaxServiceImpl implements RelaxService{
 		return relaxServiceDao.updateAplcProcSt(relaxServiceVo);
 	}
 
-
-
 	public List<BoardVo> main(BoardVo boardVo) throws Exception {
 		return relaxServiceDao.main(boardVo);
 	}
-	
-
-
-	/*@Override
-	public List<BoardVo> loginAccess(BoardVo boardVo) throws Exception {
-		return relaxServiceDao.loginAccess(boardVo);
-	}
-	
-	
-
-	@Override
-	public List<BoardVo> insertBoard(BoardVo boardVo) throws Exception {
-		return relaxServiceDao.insertBoard(boardVo);
-	}
-
-
-	@Override
-	public List<BoardVo> updateBoard(BoardVo boardVo) throws Exception {
-		return relaxServiceDao.updateBoard(boardVo);
-	}
-
-
-	@Override
-	public List<BoardVo> deleteBoard(BoardVo boardVo) throws Exception {
-		return relaxServiceDao.deleteBoard(boardVo);
-	}
-*/
-
-	
 
 }

@@ -28,9 +28,9 @@
 			</list>
 		</property>
 	</bean>
-
+	
 	<bean class="kr.or.kmaca.common.pagination.CustomPaginationRenderer" id="customRenderer" />
-
+	<!-- 전자정부 페이징 -->
 	<bean
 		class="egovframework.rte.ptl.mvc.tags.ui.pagination.DefaultPaginationManager"
 		id="paginationManager">

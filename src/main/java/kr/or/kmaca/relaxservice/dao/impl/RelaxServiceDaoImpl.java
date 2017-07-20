@@ -42,30 +42,4 @@ public class RelaxServiceDaoImpl extends SqlSessionDaoSupport implements RelaxSe
 		return getSqlSession().selectList("relaxService.main", boardVo);
 	}
 
-	
-	
-/*	@Override
-	public List<BoardVo> loginAccess(BoardVo boardVo) throws Exception {
-		return getSqlSession().selectList("relaxService.loginAccess", boardVo);
-	}
-	
-	
-
-	@Override
-	public List<BoardVo> insertBoard(BoardVo boardVo) throws Exception {
-		return getSqlSession().selectList("relaxService.insertBoard", boardVo);
-	}
-
-	@Override
-	public List<BoardVo> updateBoard(BoardVo boardVo) throws Exception {
-		return getSqlSession().selectList("relaxService.updateBoard", boardVo);
-	}
-
-	@Override
-	public List<BoardVo> deleteBoard(BoardVo boardVo) throws Exception {
-		return getSqlSession().selectList("relaxService.deleteBoard", boardVo);
-	}*/
-
-	
-
 }

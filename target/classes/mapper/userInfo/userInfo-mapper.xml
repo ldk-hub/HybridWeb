@@ -2,30 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="userInfo">
 
-	<!--  유저 로그인 시큐리티 -->
-	 <select id="loadUserByUsername" parameterType="String"
+	<!-- 유저 로그인 -->
+	<select id="loadUserByUsername" parameterType="String"
 		resultType="UserInfo">
-		SELECT 
-		       CERT_NO certNo,
-		       PERS_NM name,
-		       PERS_USERID username,
-		       PERS_PSWD password,
-		       USER_ST_CD userStCd
-		  FROM MB_MEMB_EMP
-		 WHERE PERS_USERID = #{username}
+		SELECT
+			CERT_NO certNo,
+			PERS_NM name,
+			PERS_USERID username,
+			PERS_PSWD password,
+			USER_ST_CD userStCd
+		FROM MB_MEMB_EMP
+		WHERE PERS_USERID = #{username}
 	</select>
-	
+
 	<!--회원가입 -->
 	<insert id="insertId" parameterType="String">
-		insert into 
+		insert into
 		MB_MEMB_EMP(CERT_NO certNo,
-				       PERS_NM name,
-				       PERS_USERID userId,
-				       PERS_PSWD password,
-				       INT_DT,
-				       USER_ST_CD userStCd,
-				       EMAIL email
-				       )
+				PERS_NM name,
+				PERS_USERID userId,
+				PERS_PSWD password,
+				INT_DT,
+				USER_ST_CD userStCd,
+				EMAIL email
+				)
 		VALUES(MB_SEQ.NEXTVAL,
 				#{name},
 				#{userId},
