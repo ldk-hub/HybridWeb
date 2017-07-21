@@ -42,4 +42,9 @@ public class RelaxServiceDaoImpl extends SqlSessionDaoSupport implements RelaxSe
 		return getSqlSession().selectList("relaxService.main", boardVo);
 	}
 
+	@Override
+	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo) throws Exception {
+		return getSqlSession().selectList("relaxService.relaxServiceSearch", relaxServiceVo);
+	}
+
 }

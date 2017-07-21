@@ -11,6 +11,19 @@
 	<c:if test="${param.error == '999'}">
 		<c:set var="msg" value="관리자에게 문의하시기 바랍니다."></c:set>
 	</c:if>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${pageContext.request.contextPath}/bootstrap/css/business-casual.css"
+	rel="stylesheet" type="text/css">
+<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
+<script
+	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
+	
 <script type="text/javascript">
 	var msg = "${msg}";
 
@@ -49,19 +62,6 @@
 					});
   }
 </script>
-
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/bootstrap/css/business-casual.css"
-	rel="stylesheet" type="text/css">
-<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/ajax.js"></script>
-<script
-	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 	
 <title>Diet System</title>
 </head>
@@ -129,7 +129,7 @@
 				<!-- 모달 팝업 -->
 				<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
 					aria-labelledby="ModalLabel" aria-hidden="true">
-					<div class="modal-dialog">
+					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">

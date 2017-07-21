@@ -40,4 +40,10 @@ public class RelaxServiceImpl implements RelaxService{
 		return relaxServiceDao.main(boardVo);
 	}
 
+
+	@Override
+	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo) throws Exception {
+		return relaxServiceDao.relaxServiceSearch(relaxServiceVo);
+	}
+
 }

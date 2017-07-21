@@ -48,7 +48,7 @@
 	</select>
 	
 	<!-- 게시글 검색 -->
-	<!--  <select id="relaxServiceSearch" parameterType="RelaxServiceVo"
+	<select id="relaxServiceSearch" parameterType="RelaxServiceVo"
 		resultType="RelaxServiceVo">
 		select 
 			SEQ seq,
@@ -60,15 +60,15 @@
 			EMAIL email,
 			USR usr
 		FROM TEST
-		WHERE USR = #{usr}
-	</select>-->
+		WHERE 1=1
+		<if test="searchBox != null and searchBox != ''">
+ -			<if test="searchCategory == 'title'">
+ -				AND TITLE = #{searchBox}
+ -			</if>
+ -			<if test="searchCategory == 'name'">
+ -				AND USR = #{searchBox}
+ -			</if>
+ -		</if>
+	</select>
 
-	<!-- 데이터 수정 -->
-	<update id="updateAplcProcSt" parameterType="RelaxServiceVo">
-		UPDATE CL_CNSM_ACPT
-		SET APLC_PROC_ST = '910' 
-		WHERE APLC_MGMT_NO = #{aplcMgmtNo} 
-		AND APLC_PROC_ST = '710'
-	</update>
-	
 </mapper>

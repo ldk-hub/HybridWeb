@@ -32,6 +32,15 @@
 		document.frm.submit();
 	}
 </script>
+<script type="text/javascript">
+	function board_insert() {
+		if ($('#title').val() == "") {
+			alert("제목을 입력하시오.");
+		} else if ($('#contents').val() == "") {
+			alert("본문 내용을 입력하시오.");
+		}
+	}
+</script>
 
 <title>Diet System</title>
 </head>
@@ -65,8 +74,8 @@
 					<sec:authorize ifAnyGranted="ROLE_USER">
 						<li><a href="#"><span class="glyphicon glyphicon-user">
 									${user.name }</a></li>
-						<li><a href="/MobileVote/login/login.do"><span
-								class="glyphicon glyphicon-log-in"> Logout</a></li>
+						<li><a href="/MobileVote/login/login.do"><span class="glyphicon glyphicon-log-in">
+									 Logout</a></li>
 					</sec:authorize>
 				</ul>
 			</div>
@@ -87,8 +96,8 @@
 				<div class="form-group">
 					<select name="searchCategory" id="searchCategory"
 						class="form-control">
-						<option value='name'>제목</option>
-						<option value='bthday'>작성자</option>
+						<option value='title'>제목</option>
+						<option value='name'>작성자</option>
 					</select>
 				</div>
 				<div class="form-group">
@@ -140,7 +149,7 @@
 			<!-- 모달 팝업 -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 				aria-labelledby="myModalLabel" aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-lg">
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">
@@ -153,19 +162,21 @@
 								<th>제목</th>
 								<td colspan="2"><input name="title" value='' id="title"
 									placeholder="제목을 입력하시오." type="text" class="form-control" /></td>
-
 							</tr>
 						</table>
-						<textarea id="contents" name="contents"></textarea>
-						<script type="text/javascript">
-										CKEDITOR.replace( 'contents',{
-										customConfig : '/ckeditor/config.js',
-										width: '99%',
-										height: 250
-										});
-									</script>
+						<div class="modal-header">
+							<h4 class="modal-title" id="myModalLabel">게시글 본문</h4>
+							<textarea id="contents" name="contents"></textarea>
+							<script type="text/javascript">
+								CKEDITOR.replace('contents', {
+									customConfig : '/ckeditor/config.js',
+									width : '99%',
+									height : 250
+								});
+							</script>
+						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-warning">저장</button>
+							<button type="button" class="btn btn-warning" OnClick="board_insert()">저장</button>
 							<button type="button" class="btn btn-warning"
 								data-dismiss="modal">닫기</button>
 						</div>
@@ -179,7 +190,7 @@
 	<!-- Modal -->
 	<div class="modal fade" id="modalPop" tabindex="-1" role="dialog"
 		aria-labelledby="modalPopLabel" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal"
@@ -211,8 +222,7 @@
 					</table>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-warning" data-dismiss="modal">수정</button>
-					<button type="button" class="btn btn-warning" data-dismiss="modal">삭제</button>
+					<button type="button" class="btn btn-warning" id="delete">삭제</button>
 					<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
 					<!-- <button type="button" class="btn btn-primary" id="eventComplete">행사완료</button> -->
 				</div>
@@ -242,7 +252,6 @@
 				})
 			</script>
 	</body>
-</html>
 
 <script type="text/javascript">
 	//게시판 상세조회
@@ -251,9 +260,6 @@
 						var button = $(event.relatedTarget); // Button that triggered the modal
 						var aplcMgmtNo = button.data('aplcmgmtno');
 						var modal = $(this);
-						// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-						// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-						//callAjax(form, url, target, type, returnType, data, contentType, jsonpCallback, processData, crossDomain, async);
 						var param = new Object();
 						param.seq = aplcMgmtNo;
 						/* var result = callAjax(
@@ -292,6 +298,34 @@
 									}
 								});
 					});
+	//게시판 삭제
+	$('#delete').on('click',
+			function(event) {
+				var aplcMgmtNo = $("#aplcMgmtNo").text();
+				alert(aplcMgmtNo);
+				var param = new Object();
+				var pageIndex = "${param.pageIndex}";
+				param.aplcMgmtNo = aplcMgmtNo;
+				$
+						.ajax({
+							url : '${pageContext.request.contextPath}/relaxService/deleteBoard.do',
+							data : param,
+							dataType : 'json',
+							type : 'POST',
+							success : function(data) {
+								if (data > 0) {
+									alert("삭제가 완료 되었습니다.");
+									movePaging(pageIndex);
+								} else if (data == 0) {
+									alert("삭제 완료.");
+									movePaging(pageIndex);
+								}
+							},
+							error : function(data) {
+								alert("오류입니다.")
+							}
+						});
+			});
 	
 	//게시판 수정 
 	/* $('#eventComplete')
@@ -335,3 +369,4 @@
 		}
 	}
 </script>
+</html>

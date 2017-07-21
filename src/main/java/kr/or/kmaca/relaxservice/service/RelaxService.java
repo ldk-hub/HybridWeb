@@ -16,5 +16,7 @@ public interface RelaxService {
 	public int updateAplcProcSt(RelaxServiceVo relaxServiceVo) throws Exception;
 	
 	public List<BoardVo> main(BoardVo boardVo) throws Exception;
+
+	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo)throws Exception;
 	
 }
