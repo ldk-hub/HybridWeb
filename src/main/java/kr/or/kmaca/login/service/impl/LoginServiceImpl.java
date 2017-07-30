@@ -6,6 +6,7 @@ import org.springframework.ui.ModelMap;
 
 import kr.or.kmaca.login.dao.LoginDao;
 import kr.or.kmaca.login.service.LoginService;
+import kr.or.kmaca.security.vo.UserInfo;
 
 @Service
 public class LoginServiceImpl implements LoginService{
@@ -15,8 +16,10 @@ public class LoginServiceImpl implements LoginService{
 	
 	
 	@Override
-	public void insertId(ModelMap map) throws Exception {
-		 loginDao.insertId(map);
+	public void insertId(UserInfo userInfo) throws Exception {
+		 loginDao.insertId(userInfo);
 	}
+
+
 
 }

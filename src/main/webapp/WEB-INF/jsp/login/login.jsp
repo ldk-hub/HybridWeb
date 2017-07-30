@@ -40,39 +40,48 @@
 	  var email = $('#email_acc').val();
 			if(id ==""){
 				alert("아이디를 입력하시오.");
+				return;
 			}else if(password ==""){
 				alert("패스워드를 입력하시오.");
+				return;
 			}else if(name ==""){
 				alert("이름을 입력하시오.");
+				return;
 			}else if(email ==""){
 				alert("이메일주소를 입력하시오.");
+				return;
 			}
 					$.ajax({
 						url : '${pageContext.request.contextPath}/login/insertId.do',
-						data : param,
-						dataType : 'json',
+						data : {
+							"userId":id,
+							"name":name,
+							"password":password,
+							"email":email,
+						},
 						type : 'POST',
 						success : function(data) {
 							alert("회원가입 완료.");
-							$("#Modal").hide(); 
+							$(".modal").hide
 						},
 						error : function(data) {
 							alert("오류입니다.");
+							$(".modal").hide
 						}
 					});
   }
 </script>
 	
-<title>Diet System</title>
+<title>INTRODUCE System</title>
 </head>
 <body>
-<div class="brand">Diet System</div>
+<div class="brand">INTRODUCE System</div>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-			<a class="navbar-brand" href="#">Diet System</a>
+			<a class="navbar-brand" href="#">INTRODUCE System</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span> 

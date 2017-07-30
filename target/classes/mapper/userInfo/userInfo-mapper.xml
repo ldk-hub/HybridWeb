@@ -18,20 +18,18 @@
 	<!--회원가입 -->
 	<insert id="insertId" parameterType="String">
 		insert into
-		MB_MEMB_EMP(CERT_NO certNo,
-				PERS_NM name,
-				PERS_USERID userId,
-				PERS_PSWD password,
+		MB_MEMB_EMP(CERT_NO,
+				PERS_NM,
+				PERS_USERID,
+				PERS_PSWD,
 				INT_DT,
-				USER_ST_CD userStCd,
-				EMAIL email
+				EMAIL
 				)
 		VALUES(MB_SEQ.NEXTVAL,
 				#{name},
 				#{userId},
 				#{password},
 				sysdate,
-				"50",
 				#{email}
 				)
 	</insert>

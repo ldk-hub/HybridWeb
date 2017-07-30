@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
 
 import kr.or.kmaca.login.dao.LoginDao;
+import kr.or.kmaca.security.vo.UserInfo;
 
 @Repository
 public class LoginDaoImpl extends SqlSessionDaoSupport implements LoginDao {
@@ -20,8 +21,8 @@ public class LoginDaoImpl extends SqlSessionDaoSupport implements LoginDao {
 	
 	
 	@Override
-	public void insertId(ModelMap map) throws Exception {
-		 getSqlSession().insert("userInfo.insertId", map);
+	public void insertId(UserInfo userInfo) throws Exception {
+		 getSqlSession().insert("userInfo.insertId", userInfo);
 	}
 
 }

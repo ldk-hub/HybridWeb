@@ -42,16 +42,16 @@
 	}
 </script>
 
-<title>Diet System</title>
+<title>INTRODUCE System</title>
 </head>
 <body>
-	<div class="brand">Diet System</div>
+	<div class="brand">INTRODUCE System</div>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Diet System</a>
+				<a class="navbar-brand" href="#">INTRODUCE System</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span> <span

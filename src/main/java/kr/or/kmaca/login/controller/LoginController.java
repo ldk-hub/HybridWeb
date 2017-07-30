@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.or.kmaca.login.service.LoginService;
+import kr.or.kmaca.security.vo.UserInfo;
 
 @Controller
 @RequestMapping(value = "/login")
@@ -21,8 +23,9 @@ public class LoginController {
 	}
 	//회원가입
 	@RequestMapping(value = "/insertId")
-	public void insertId(ModelMap map) throws Exception {
-		loginService.insertId(map);
+	@ResponseBody
+	public void insertId(UserInfo userInfo) throws Exception {
+		loginService.insertId(userInfo);
 	}
 	
 }

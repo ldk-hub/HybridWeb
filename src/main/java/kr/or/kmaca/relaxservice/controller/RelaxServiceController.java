@@ -70,7 +70,6 @@ public class RelaxServiceController {
 	@RequestMapping(value = "/relaxServiceSearch")
 	@ResponseBody
 	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo) throws Exception {
-		//System.out.println("@@@@@@@@@@@@" + relaxServiceVo);
 		return relaxService.relaxServiceSearch(relaxServiceVo);
 	}
 	

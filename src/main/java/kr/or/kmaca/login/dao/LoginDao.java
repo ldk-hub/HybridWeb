@@ -2,8 +2,10 @@ package kr.or.kmaca.login.dao;
 
 import org.springframework.ui.ModelMap;
 
+import kr.or.kmaca.security.vo.UserInfo;
+
 public interface LoginDao {
 
-	public void insertId(ModelMap map)throws Exception;
+	public void insertId(UserInfo userInfo)throws Exception;
 
 }
