@@ -42,25 +42,22 @@
 	}
 </script>
 
-<title>INTRODUCE System</title>
+<title>Hybrid Web</title>
 </head>
 <body>
-	<div class="brand">INTRODUCE System</div>
+	<div class="brand">Hybrid Web</div>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">INTRODUCE System</a>
+				<a class="navbar-brand" href="#">Hybrid Web</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="navbar-collapse collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-left">
 					<li><a
@@ -72,16 +69,15 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<sec:authorize ifAnyGranted="ROLE_USER">
-						<li><a href="#"><span class="glyphicon glyphicon-user">
-									${user.name }</a></li>
-						<li><a href="/MobileVote/login/login.do"><span class="glyphicon glyphicon-log-in">
-									 Logout</a></li>
+						<li><a href="#">
+						<span class="glyphicon glyphicon-user">${user.name }</a></li>
+						<li><a href="/LDK/login/logoutProcess.do">
+						<span class="glyphicon glyphicon-log-in">Logout</a></li>
 					</sec:authorize>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid --> </nav>
+	</nav>
 	</div>
 	<div class="container">
 		<!-- 게시판 조회 -->
@@ -186,7 +182,6 @@
 		</div>
 		</nav>
 	</div>
-
 	<!-- Modal -->
 	<div class="modal fade" id="modalPop" tabindex="-1" role="dialog"
 		aria-labelledby="modalPopLabel" aria-hidden="true">
@@ -224,18 +219,14 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-warning" id="delete">삭제</button>
 					<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
-					<!-- <button type="button" class="btn btn-primary" id="eventComplete">행사완료</button> -->
 				</div>
 			</div>
 		</div>
-
-
 		<form name="frm" method="post">
 			<input type="hidden" name="pageIndex" /> <input type="hidden"
 				name="searchBox" /> <input type="hidden" name="searchCategory" />
 		</form>
 	</div>
-
 		<!-- 풋터 -->
 		<footer>
 			<div class="container">
@@ -246,11 +237,6 @@
 				</div>
 			</div>
 		</footer>
-			<script>
-				$('.carousel').carousel({
-					interval : 5000
-				})
-			</script>
 	</body>
 
 <script type="text/javascript">

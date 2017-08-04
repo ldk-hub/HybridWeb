@@ -22,17 +22,16 @@ public class CustomLoginFailureHandler extends SimpleUrlAuthenticationFailureHan
 	public void setDefaultFailureUrl(String defaultFailureUrl) {
 		this.defaultFailureUrl = defaultFailureUrl;
 	}
-
+	//로그인 에러상황에 따른 리턴값 지정으로 메세지 알림 리턴 로직
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 
-		// TODO...
 		if (exception instanceof BadCredentialsException
 				|| exception instanceof InternalAuthenticationServiceException) {
-			this.defaultFailureUrl = request.getContextPath() + "/login/login.do?error=1";
+			this.defaultFailureUrl =  "/login/login.do?error=1";
 		} else {
-			this.defaultFailureUrl = request.getContextPath() + "/login/login.do?error=999";
+			this.defaultFailureUrl =  "/login/login.do?error=999";
 		}
 
 		super.setDefaultFailureUrl(this.defaultFailureUrl);

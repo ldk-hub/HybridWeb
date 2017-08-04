@@ -23,26 +23,22 @@
 	src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
 <script type="text/javascript" src="../se2/js/service/HuskyEZCreator.js"
 	charset="utf-8"></script>
-<script type="text/javascript">
-	function movePaging(pageNo) {
-		document.frm.pageIndex.value = pageNo;
-		document.frm.searchBox.value = document.form1.searchBox.value;
-		document.frm.searchCategory.value = document.form1.searchCategory.value;
-		document.frm.action = "<c:url value='/relaxService/getRelaxServiceRosterList.do'/>";
-		document.frm.submit();
-	}
-</script>
-
-<title>INTRODUCE System</title>
+	<!-- 메인 캐러셀 롤링 설정 -->
+	<script>
+	$('.carousel').carousel({
+		interval : 2000
+	})
+	</script>
+			
+<title>Hybrid Web</title>
 </head>
 <body>
-	<div class="brand">INTRODUCE System</div>
+	<div class="brand">Hybrid Web</div>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
-			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">INTRODUCE System</a>
+				<a class="navbar-brand" href="#">Hybrid Web</a>
 				<button type="button" class="navbar-toggle collapsed"
 					data-toggle="collapse" data-target="#navbar-collapse-1">
 					<span class="sr-only">Toggle navigation</span> <span
@@ -50,7 +46,6 @@
 						class="icon-bar"></span>
 				</button>
 			</div>
-			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="navbar-collapse collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-left">
 					<li><a
@@ -62,16 +57,15 @@
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<sec:authorize ifAnyGranted="ROLE_USER">
-						<li><a href="#"><span class="glyphicon glyphicon-user">
-									${user.name }</a></li>
-						<li><a href="/MobileVote/login/login.do"><span
-								class="glyphicon glyphicon-log-in"> Logout</a></li>
+						<li><a href="#">
+						<span class="glyphicon glyphicon-user">${user.name }</a></li>
+						<li><a href="/LDK/login/logoutProcess.do">
+						<span class="glyphicon glyphicon-log-in"> Logout</a></li>
 					</sec:authorize>
 				</ul>
 			</div>
-			<!-- /.navbar-collapse -->
 		</div>
-		<!-- /.container-fluid --> </nav>
+	 </nav>
 	</div>
 	<div class="container">
 		<!-- 슬라이드 박스 -->
@@ -137,10 +131,5 @@
 				</div>
 			</div>
 		</footer>
-			<script>
-				$('.carousel').carousel({
-					interval : 5000
-				})
-			</script>
 	</body>
 </html>

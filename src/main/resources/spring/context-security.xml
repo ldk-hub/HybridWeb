@@ -7,7 +7,6 @@
           			  http://www.springframework.org/schema/security
           			  http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 
-	<security:http pattern="/bootstrap/**" security="none" />
 	<security:http pattern="/js/**" security="none" />
 	<security:http pattern="/login/login.do" security="none" />
 
