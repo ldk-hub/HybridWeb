@@ -46,4 +46,11 @@ public class RelaxServiceImpl implements RelaxService{
 		return relaxServiceDao.relaxServiceSearch(relaxServiceVo);
 	}
 
+
+	@Override
+	public List<RelaxServiceVo> relaxServiceInsert(RelaxServiceVo relaxServiceVo) throws Exception {
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@"+relaxServiceVo);
+		return relaxServiceDao.relaxServiceInsert(relaxServiceVo);
+	}
+
 }

@@ -41,7 +41,6 @@ public class RelaxServiceController {
 
 		List<RelaxServiceVo> list = relaxService.relaxServiceRosterList(relaxServiceVo);
 
-		//System.out.println("@@@@@@@@@@@@" + list);
 		map.put("paginationInfo", paginationInfo);
 		map.put("result", list);
 		return "/relaxService/relaxServiceRosterList";
@@ -72,5 +71,19 @@ public class RelaxServiceController {
 	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo) throws Exception {
 		return relaxService.relaxServiceSearch(relaxServiceVo);
 	}
+	
+	//게시글 삽입
+	@RequestMapping(value = "/relaxServiceInsert")
+	@ResponseBody
+	public List<RelaxServiceVo> relaxServiceInsert(RelaxServiceVo relaxServiceVo) throws Exception {
+		return relaxService.relaxServiceInsert(relaxServiceVo);
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

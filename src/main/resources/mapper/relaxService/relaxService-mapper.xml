@@ -46,7 +46,7 @@
 		FROM TEST
 		WHERE SEQ = #{seq}
 	</select>
-	
+
 	<!-- 게시글 검색 -->
 	<select id="relaxServiceSearch" parameterType="RelaxServiceVo"
 		resultType="RelaxServiceVo">
@@ -70,5 +70,21 @@
  -			</if>
  -		</if>
 	</select>
+
+	<!-- 게시글 삽입 -->
+	<insert id="relaxServiceInsert" parameterType="RelaxServiceVo">
+	INSERT INTO TEST (SEQ,
+                  TITLE,
+                  CONTENT,
+                  INT_DATE,
+                  EMAIL,
+                  USR)
+     VALUES (TEST_SEQ.NEXTVAL,
+            #{title},
+            #{content},
+            SYSDATE,
+            #{email},
+            #{usr})
+	</insert>
 
 </mapper>

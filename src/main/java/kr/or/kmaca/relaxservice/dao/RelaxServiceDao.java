@@ -18,5 +18,7 @@ public interface RelaxServiceDao {
 	public List<BoardVo> main(BoardVo boardVo) throws Exception;
 
 	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo)throws Exception;
+
+	public List<RelaxServiceVo> relaxServiceInsert(RelaxServiceVo relaxServiceVo)throws Exception;
 	
 }

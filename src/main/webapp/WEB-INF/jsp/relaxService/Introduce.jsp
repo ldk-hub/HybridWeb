@@ -72,12 +72,16 @@
 					WebSite <strong>Developer Introduce</strong>
 				</h2>
 				<hr>
-
-				<p>Developer Name : LEE DONG OK</p>
+				<p>Developer</p>
+				<p>Name : LEE DONG OK</p>
 				<p>E-MAIL : orm6711@gmail.com</p>
 				<p>address : Korea republic</p>
 				<p>Develope Career : 18Month</p>
-				<p>Skill : JAVA,SPRING,Bootstrap,JSP etc...</p>
+				<hr>
+				<p>Development environment</p>
+				<p>JAVA,javascript,SPRING FRAMEWORK(MVC,SECURITY),</p>
+				<p>Bootstrap,AJAX,MYBATIS,ORACLE</p>
+				<hr>
 			</div>
 		</div>
 

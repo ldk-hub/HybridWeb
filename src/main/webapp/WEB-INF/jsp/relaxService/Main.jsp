@@ -83,28 +83,28 @@
 						<div class="item active">
 							<a
 								href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">
-								<img class="img-reponsive img-full" src="../image/slide-1.jpg"
+								<img class="img-reponsive img-full" src="../image/slide1.jpg"
 								alt="Coffe">
 								<div class="carousel-caption">
-									<h2>Board Page</h2>
+									<h2>게시판</h2>
 								</div>
 							</a>
 						</div>
 						<div class="item">
 							<a
 								href="${pageContext.request.contextPath}/relaxService/Introduce.do">
-								<img class="img-reponsive img-full" src="../image/slide-3.jpg"
+								<img class="img-reponsive img-full" src="../image/slide3.jpg"
 								alt="Brunch">
 								<div class="carousel-caption">
-									<h2>Introduce</h2>
+									<h2>개발자 소개</h2>
 								</div>
 							</a>
 						</div>
 						<div class="item">
-							<img class="img-reponsive img-full" src="../image/slide-2.jpg"
+							<img class="img-reponsive img-full" src="../image/slide2.jpg"
 								alt="I-PAD">
 							<div class="carousel-caption">
-								<h2>Hello?</h2>
+								<h2>반응형웹페이지</h2>
 							</div>
 						</div>
 						<!-- 슬라이드 컨트롤 -->

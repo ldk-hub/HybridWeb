@@ -34,11 +34,30 @@
 </script>
 <script type="text/javascript">
 	function board_insert() {
+		var TITLE = $('#title').val();
+		var CONTENTS = $('#cke_contents').val();
+		alert(TITLE);
+		alert(CONTENTS);
 		if ($('#title').val() == "") {
 			alert("제목을 입력하시오.");
-		} else if ($('#contents').val() == "") {
-			alert("본문 내용을 입력하시오.");
-		}
+			return;
+		} 
+		$.ajax({
+			url : '${pageContext.request.contextPath}/relaxService/relaxServiceInsert.do',
+			data : {
+				"title":TITLE,
+				"content":CONTENTS,
+			},
+			type : 'POST',
+			success : function(data) {
+				alert("게시글 작성 완료.");
+				$(".modal").hide
+			},
+			error : function(data) {
+				alert("오류입니다.");
+				$(".modal").hide
+			}
+		});
 	}
 </script>
 

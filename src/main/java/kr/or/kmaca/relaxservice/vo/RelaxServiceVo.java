@@ -45,7 +45,21 @@ public class RelaxServiceVo {
 	
 	private String searchCategory;
 	
+	private int seq;
 	
+	private String title;
+	
+	private String content;
+	
+	private String intDate;
+	
+	private String uptDate;
+	
+	private int usrCnt;
+	
+	private String usr;
+	
+	private String email;
 	
 	public String getSearchBox() {
 		return searchBox;
@@ -214,17 +228,6 @@ public class RelaxServiceVo {
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
-	
-	
-	
-	private int seq;
-	private String title;
-	private String content;
-	private String intDate;
-	private String uptDate;
-	private int usrCnt;
-	private String usr;
-	private String email;
 	
 	public String getEmail() {
 		return email;
