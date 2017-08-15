@@ -4,7 +4,10 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <%@ taglib prefix="ui" uri="http://egovframework.gov/ctl/ui"%>
+<!-- 시큐리티 유저권한  -->
 <sec:authentication var="user" property="principal" />
+<!-- 로그인한 유저한정 삭제버튼 하이딩 -->
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -35,27 +38,30 @@
 <script type="text/javascript">
 	function board_insert() {
 		var TITLE = $('#title').val();
-		var CONTENTS = $('#cke_contents').val();
-		alert(TITLE);
-		alert(CONTENTS);
+		var CONTENTS = CKEDITOR.instances.contents.getData();
+		var NAME = $('#usrId').text();
 		if ($('#title').val() == "") {
 			alert("제목을 입력하시오.");
 			return;
-		} 
+		}else if(CONTENTS == ""){
+			alert("내용을 입력하세요.");
+			return;
+		}
 		$.ajax({
 			url : '${pageContext.request.contextPath}/relaxService/relaxServiceInsert.do',
 			data : {
 				"title":TITLE,
 				"content":CONTENTS,
+				"usr": NAME
 			},
 			type : 'POST',
 			success : function(data) {
 				alert("게시글 작성 완료.");
-				$(".modal").hide
+				$('#myModal').modal('hide')
 			},
 			error : function(data) {
 				alert("오류입니다.");
-				$(".modal").hide
+				$('#myModal').modal('hide')
 			}
 		});
 	}
@@ -89,7 +95,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<sec:authorize ifAnyGranted="ROLE_USER">
 						<li><a href="#">
-						<span class="glyphicon glyphicon-user">${user.name }</a></li>
+						<span id="usrId" class="glyphicon glyphicon-user">${user.name }</a></li>
 						<li><a href="/LDK/login/logoutProcess.do">
 						<span class="glyphicon glyphicon-log-in">Logout</a></li>
 					</sec:authorize>
@@ -222,10 +228,6 @@
 							<td><span id="intDate"></span></td>
 						</tr>
 						<tr>
-							<th>이메일</th>
-							<td colspan="3"><span id="email"></span></td>
-						</tr>
-						<tr>
 							<th>글제목</th>
 							<td colspan="3"><span id="title"></span></td>
 						</tr>
@@ -265,6 +267,7 @@
 						var button = $(event.relatedTarget); // Button that triggered the modal
 						var aplcMgmtNo = button.data('aplcmgmtno');
 						var modal = $(this);
+						var usrId = $('#usrId').text();
 						var param = new Object();
 						param.seq = aplcMgmtNo;
 						/* var result = callAjax(
@@ -296,7 +299,9 @@
 												defaultString(data.title));
 										modal.find('#content').text(
 												defaultString(data.content));
-										
+										if(data.usr != usrId ){
+										$('#delete').hide();
+										}
 									},
 									error : function(data) {
 										alert("오류입니다.")

@@ -25,6 +25,7 @@ public class UserInfoServiceImpl
     userInfo.setUsername(username);
     
     UserInfo loginUserInfo = this.userInfoDao.loadUserByUsername(username);
+    System.out.println(username);
     setRoles(loginUserInfo);
     return loginUserInfo;
   }

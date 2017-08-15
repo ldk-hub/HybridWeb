@@ -131,7 +131,7 @@
 				<div class="brand-before">
 					<small>Developer adress : 서울시 </small>
 				</div>
-				<button class="btn btn-warning" onclick="panTo()">원래 주소 되돌리기</button>
+				<button class="btn btn-warning" onclick="panTo()">개발자 서식지</button>
 			</div>
 		</div>
 	</div>

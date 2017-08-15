@@ -10,6 +10,7 @@
 			PERS_NM name,
 			PERS_USERID username,
 			PERS_PSWD password,
+			EMAIL email,
 			USER_ST_CD userStCd
 		FROM MB_MEMB_EMP
 		WHERE PERS_USERID = #{username}

@@ -22,6 +22,7 @@
 			         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})
 			 WHERE rnum >= #{firstIndex} + 1
 			 ]]>
+			 order by SEQ desc
 	</select>
 	
 	<!--게시글 카운터 -->
@@ -77,14 +78,18 @@
                   TITLE,
                   CONTENT,
                   INT_DATE,
-                  EMAIL,
                   USR)
      VALUES (TEST_SEQ.NEXTVAL,
             #{title},
             #{content},
             SYSDATE,
-            #{email},
             #{usr})
 	</insert>
+	
+	<!-- 조회수 증가 -->
+	<!-- <update id="boardSql.updateViewCnt" parameterType="java.util.HashMap">
+	UPDATE TEST SET USER_CNT = NVL(USER_CNT, 0) + 1 WHERE
+	SEQ = #{seq} 
+	</update> -->
 
 </mapper>

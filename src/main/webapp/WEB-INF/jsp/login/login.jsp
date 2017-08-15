@@ -63,11 +63,11 @@
 						type : 'POST',
 						success : function(data) {
 							alert("회원가입 완료.");
-							$(".modal").hide
+							$('#Modal').modal('hide')
 						},
 						error : function(data) {
 							alert("오류입니다.");
-							$(".modal").hide
+							$('#Modal').modal('hide')
 						}
 					});
   }
