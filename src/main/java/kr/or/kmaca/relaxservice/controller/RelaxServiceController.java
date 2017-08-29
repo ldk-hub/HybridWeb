@@ -79,11 +79,11 @@ public class RelaxServiceController {
 		return relaxService.relaxServiceInsert(relaxServiceVo);
 	}
 	
-	
-	
-	
-	
-	
-	
+	//게시글 삭제
+	@RequestMapping(value = "/relaxServiceDelete")
+	@ResponseBody
+	public void relaxServiceDelete(RelaxServiceVo relaxServiceVo) throws Exception {
+		relaxService.relaxServiceDelete(relaxServiceVo);
+	}
 	
 }

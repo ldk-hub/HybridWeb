@@ -17,12 +17,12 @@
 				EMAIL email,
 				USR usr
 			FROM TEST
+			order by SEQ desc
 	   			 <![CDATA[
 	                  ) A
 			         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})
 			 WHERE rnum >= #{firstIndex} + 1
 			 ]]>
-			 order by SEQ desc
 	</select>
 	
 	<!--게시글 카운터 -->
@@ -86,10 +86,16 @@
             #{usr})
 	</insert>
 	
+	<!-- 게시글 삭제 -->
+	<delete id="relaxServiceDelete" parameterType="RelaxServiceVo">
+	DELETE FROM TEST WHERE SEQ = #{seq}
+	and USR = #{usr} 
+	</delete>
+	
 	<!-- 조회수 증가 -->
-	<!-- <update id="boardSql.updateViewCnt" parameterType="java.util.HashMap">
+	<update id="relaxUpdateViewCnt" parameterType="RelaxServiceVo">
 	UPDATE TEST SET USER_CNT = NVL(USER_CNT, 0) + 1 WHERE
 	SEQ = #{seq} 
-	</update> -->
+	</update>
 
 </mapper>

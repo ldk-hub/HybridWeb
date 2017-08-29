@@ -20,5 +20,7 @@ public interface RelaxService {
 	public List<RelaxServiceVo> relaxServiceSearch(RelaxServiceVo relaxServiceVo)throws Exception;
 
 	public List<RelaxServiceVo> relaxServiceInsert(RelaxServiceVo relaxServiceVo)throws Exception;
+
+	public void relaxServiceDelete(RelaxServiceVo relaxServiceVo)throws Exception;
 	
 }

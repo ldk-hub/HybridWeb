@@ -23,6 +23,8 @@ public class RelaxServiceImpl implements RelaxService{
 
 
 	public RelaxServiceVo relaxServiceDetail(RelaxServiceVo relaxServiceVo) throws Exception {
+				//조회수 증가
+				relaxServiceDao.relaxUpdateViewCnt(relaxServiceVo);
 		return relaxServiceDao.relaxServiceDetail(relaxServiceVo);
 	}
 
@@ -49,8 +51,13 @@ public class RelaxServiceImpl implements RelaxService{
 
 	@Override
 	public List<RelaxServiceVo> relaxServiceInsert(RelaxServiceVo relaxServiceVo) throws Exception {
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@"+relaxServiceVo);
 		return relaxServiceDao.relaxServiceInsert(relaxServiceVo);
+	}
+
+
+	@Override
+	public void relaxServiceDelete(RelaxServiceVo relaxServiceVo) throws Exception {
+		relaxServiceDao.relaxServiceDelete(relaxServiceVo);
 	}
 
 }

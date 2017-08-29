@@ -57,11 +57,15 @@
 			type : 'POST',
 			success : function(data) {
 				alert("게시글 작성 완료.");
+				//모달 닫기
 				$('#myModal').modal('hide')
+				//게시글 성공 후 리스트 재검색
+				document.frm.submit();				
 			},
 			error : function(data) {
 				alert("오류입니다.");
 				$('#myModal').modal('hide')
+				return;
 			}
 		});
 	}
@@ -222,6 +226,7 @@
 				<div class="modal-body">
 					<table class="table">
 						<tr>
+							<span style="display:none;" id="seq"></span>
 							<th>작성자</th>
 							<td><span id="usr"></span></td>
 							<th>작성일</th>
@@ -287,6 +292,8 @@
 									dataType : 'json',
 									type : 'POST',
 									success : function(data) {
+										modal.find('#seq').text(
+												defaultString(data.seq));
 										modal.find('#usr').text(
 												defaultString(data.usr));
 										modal.find('#intDate').text(
@@ -309,65 +316,30 @@
 								});
 					});
 	//게시판 삭제
-	$('#delete').on('click',
-			function(event) {
-				var aplcMgmtNo = $("#aplcMgmtNo").text();
-				alert(aplcMgmtNo);
-				var param = new Object();
-				var pageIndex = "${param.pageIndex}";
-				param.aplcMgmtNo = aplcMgmtNo;
-				$
-						.ajax({
-							url : '${pageContext.request.contextPath}/relaxService/deleteBoard.do',
-							data : param,
-							dataType : 'json',
+	$('#delete').on('click',function(event) {
+				var usrId = $('#usrId').text();
+				var seq = $('#seq').text();
+				$.ajax({
+							url : '${pageContext.request.contextPath}/relaxService/relaxServiceDelete.do',
+							data :{"usr" : usrId,
+								  "seq" : seq
+							},
 							type : 'POST',
 							success : function(data) {
-								if (data > 0) {
 									alert("삭제가 완료 되었습니다.");
-									movePaging(pageIndex);
-								} else if (data == 0) {
-									alert("삭제 완료.");
-									movePaging(pageIndex);
-								}
+									//모달 닫기
+									$('#myModal').modal('hide')
+									//게시글 성공 후 리스트 재검색
+									document.frm.submit();		
 							},
 							error : function(data) {
 								alert("오류입니다.")
-							}
-						});
-			});
-	
-	//게시판 수정 
-	/* $('#eventComplete')
-			.on(
-					'click',
-					function(event) {
-						var aplcMgmtNo = $("#aplcMgmtNo").text();
-						var param = new Object();
-						var pageIndex = "${param.pageIndex}";
-						param.aplcMgmtNo = aplcMgmtNo;
-						$
-								.ajax({
-									url : '${pageContext.request.contextPath}/relaxService/updateAplcProcSt.do',
-									data : param,
-									dataType : 'json',
-									type : 'POST',
-									success : function(data) {
-										if (data > 0) {
-											alert("게시판처리가 완료 되었습니다.");
-											movePaging(pageIndex);
-										} else if (data == 0) {
-											alert("게시판처리가 완료.");
-											movePaging(pageIndex);
-										}
-									},
-									error : function(data) {
-										alert("오류입니다.")
-									}
-								});
-					}); */
+						}
+					});
+				});
 	//검색버튼
 	$('#searchBtn').on('click', function(event) {
+		alert("${param.pageIndex}");
 		movePaging("${param.pageIndex}");
 	});
 
