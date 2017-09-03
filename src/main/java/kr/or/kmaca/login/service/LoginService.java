@@ -9,4 +9,6 @@ public interface LoginService {
 
 	public void insertId(UserInfo userInfo)throws Exception;
 
+	public String idCheck(UserInfo userInfo)throws Exception;
+
 }

@@ -57,6 +57,12 @@ public class RelaxServiceController {
 	public String Introduce(BoardVo BoardVo) throws Exception {
 		return "/relaxService/Introduce";
 	}
+	
+	//고객 정보 목록
+	@RequestMapping(value = "/Client")
+	public String Client(BoardVo BoardVo) throws Exception {
+		return "/relaxService/Client";
+	}
 
 	// 게시글 상세 내용
 	@RequestMapping(value = "/relaxServiceDetail")

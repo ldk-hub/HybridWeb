@@ -27,5 +27,11 @@ public class LoginController {
 	public void insertId(UserInfo userInfo) throws Exception {
 		loginService.insertId(userInfo);
 	}
+	//아이디 중복체크
+	@RequestMapping(value = "/idCheck")
+	@ResponseBody
+	public String idCheck(UserInfo userInfo) throws Exception {
+		return loginService.idCheck(userInfo);
+	}
 	
 }

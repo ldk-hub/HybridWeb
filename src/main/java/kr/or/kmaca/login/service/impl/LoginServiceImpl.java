@@ -21,5 +21,12 @@ public class LoginServiceImpl implements LoginService{
 	}
 
 
+	@Override
+	public String idCheck(UserInfo userInfo) throws Exception {
+		
+		return loginDao.idCheck(userInfo);
+	}
+
+
 
 }

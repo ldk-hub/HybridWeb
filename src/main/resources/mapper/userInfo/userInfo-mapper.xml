@@ -34,4 +34,14 @@
 				#{email}
 				)
 	</insert>
+	
+	<!-- 아이디 중복체크 -->
+	<select id="idCheck" parameterType="String"
+		resultType="UserInfo">
+		select 
+			PERS_USERID 
+		 from MB_MEMB_EMP 
+		 WHERE PERS_USERID = #{userId}
+	</select>
+	
 </mapper>

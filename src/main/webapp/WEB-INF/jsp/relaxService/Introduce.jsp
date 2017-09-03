@@ -50,6 +50,8 @@
 						href="${pageContext.request.contextPath}/relaxService/getRelaxServiceRosterList.do">Board</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/relaxService/Introduce.do">Introduce</a></li>
+					<li><a
+						href="${pageContext.request.contextPath}/relaxService/ClientList.do">ClientList</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<sec:authorize ifAnyGranted="ROLE_USER">

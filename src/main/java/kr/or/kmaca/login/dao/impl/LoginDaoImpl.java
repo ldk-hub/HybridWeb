@@ -25,4 +25,10 @@ public class LoginDaoImpl extends SqlSessionDaoSupport implements LoginDao {
 		 getSqlSession().insert("userInfo.insertId", userInfo);
 	}
 
+
+	@Override
+	public String idCheck(UserInfo userInfo) throws Exception {
+		return getSqlSession().selectOne("userInfo.idCheck", userInfo);
+	}
+
 }
