@@ -22,6 +22,16 @@
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 
+
+<script type="text/javascript">
+	function movePaging(pageNo) {
+		document.frm.pageIndex.value = pageNo;
+		document.frm.searchCategory.value = document.form1.searchCategory.value;
+		document.frm.action = "<c:url value='/relaxService/ClientList.do'/>";
+		document.frm.submit();
+	}
+</script>
+
 <title>Hybrid Web</title>
 </head>
 <body>
@@ -62,9 +72,56 @@
 		</nav>
 	</div>
 	
+	<div class="container">
+		<!-- 게시판 조회 -->
+		<div class="login-box well">
+			<div class="page-header">
+				<h1>
+					<small>회원정보</small>
+				</h1>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>순번</th>
+						<th>회원명</th>
+						<th>아이디</th>
+						<th>가입날짜</th>
+						<th>이메일</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${result}" var="list2">
+						<tr>
+							<th scope="row">${list2.certNo }</th>
+							<th scope="row">${list2.name }</th>
+							<th scope="row">${list2.username }</th>
+							<th scope="row">${list2.fstdate }</th>
+							<th scope="row">${list2.email }</th>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<div class="form-group"
+				style="display: center-block; text-align: center;">
+				<ul class="pagination">
+					<ui:pagination paginationInfo="${paginationInfo}" type="custom"
+						jsFunction="movePaging" />
+				</ul>
+			</div>
+			</div>
+			</div>
+			
+			
+			<!-- 버튼 -->
+			<div class="form-group"
+				style="display: right-block; text-align: center;">
+				<button type="button" class="btn btn-warning btn-lg"
+					data-toggle="modal" data-target="#">엑셀 다운로드</button>
+			</div>
 
 		<!-- 풋터 -->
-		<footer>
+		<footer class="footer">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 text-center">

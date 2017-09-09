@@ -60,4 +60,5 @@ public class RelaxServiceDaoImpl extends SqlSessionDaoSupport implements RelaxSe
 	public void relaxUpdateViewCnt(RelaxServiceVo relaxServiceVo) throws Exception {
 		getSqlSession().selectOne("relaxService.relaxUpdateViewCnt", relaxServiceVo);
 	}
+	
 }

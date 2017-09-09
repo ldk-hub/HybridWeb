@@ -131,7 +131,7 @@
 				</script>
 				</div>
 				<div class="brand-before">
-					<small>Developer adress : 서울시 </small>
+					<small>Developer adress : 파주시 </small>
 				</div>
 				<button class="btn btn-warning" onclick="panTo()">개발자 서식지</button>
 			</div>

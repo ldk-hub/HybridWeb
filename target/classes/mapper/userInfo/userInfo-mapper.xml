@@ -44,4 +44,26 @@
 		 WHERE PERS_USERID = #{userId}
 	</select>
 	
+	<!-- 회원정보 조회(엑셀)-->
+	<select id="ClientList" parameterType="String"
+		resultType="UserInfo">
+		SELECT
+            CERT_NO certNo,
+            PERS_NM name,
+            PERS_USERID username,
+            PERS_PSWD password,
+            EMAIL email,
+            INT_DT fstdate,
+            USER_ST_CD userStCd
+        FROM MB_MEMB_EMP
+        ORDER BY CERT_NO
+	</select>
+	
+	<!--회원정보 카운터 -->
+	<select id="ClientListCnt" parameterType="UserInfo"
+	resultType="int">
+		SELECT COUNT(1) AS CNT
+		FROM MB_MEMB_EMP
+	</select>
+	
 </mapper>

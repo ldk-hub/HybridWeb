@@ -12,9 +12,57 @@ public class UserInfo
   private String username;
   private String password;
   private String name;
-  private String certNo;
+  private String fstdate;
   private String userStCd;
   private String email;
+  private String certNo;
+  private String seq;
+  private String pageIndex = "1";
+  private int recordCountPerPage = 10;
+  private int firstIndex;
+  private int lastIndex;
+  
+  public String getSeq() {
+		return seq;
+	}
+
+	public void setSeq(String seq) {
+		this.seq = seq;
+	}
+
+	public String getPageIndex() {
+		return pageIndex;
+	}
+
+	public void setPageIndex(String pageIndex) {
+		this.pageIndex = pageIndex;
+	}
+
+	public int getRecordCountPerPage() {
+		return recordCountPerPage;
+	}
+
+	public void setRecordCountPerPage(int recordCountPerPage) {
+		this.recordCountPerPage = recordCountPerPage;
+	}
+
+	public int getFirstIndex() {
+		return firstIndex;
+	}
+
+	public void setFirstIndex(int firstIndex) {
+		this.firstIndex = firstIndex;
+	}
+
+	public int getLastIndex() {
+		return lastIndex;
+	}
+
+	public void setLastIndex(int lastIndex) {
+		this.lastIndex = lastIndex;
+	}
+
+  
   public String getEmail() {
 	return email;
 }
@@ -108,6 +156,15 @@ private String userId;
   {
     this.password = password;
   }
+  
+  public String getFstdate() {
+		return fstdate;
+	}
+
+  public void setFstdate(String fstdate) {
+		this.fstdate = fstdate;
+	}
+
   
   public void setAuthorities(List<UserRole> authorities)
   {

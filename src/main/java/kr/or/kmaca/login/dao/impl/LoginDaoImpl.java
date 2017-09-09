@@ -1,5 +1,7 @@
 package kr.or.kmaca.login.dao.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.ui.ModelMap;
 
 import kr.or.kmaca.login.dao.LoginDao;
+import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
 import kr.or.kmaca.security.vo.UserInfo;
 
 @Repository
@@ -30,5 +33,22 @@ public class LoginDaoImpl extends SqlSessionDaoSupport implements LoginDao {
 	public String idCheck(UserInfo userInfo) throws Exception {
 		return getSqlSession().selectOne("userInfo.idCheck", userInfo);
 	}
+
+
+	@Override
+	public List<RelaxServiceVo> ClientList(UserInfo userInfo) throws Exception {
+		return getSqlSession().selectList("userInfo.ClientList", userInfo);
+	}
+
+
+	@Override
+	public int ClientListCnt(UserInfo userInfo) throws Exception {
+		return getSqlSession().selectOne("userInfo.ClientListCnt", userInfo);
+	}
+	
+	//회원정보 조회
+	//public String userList(UserInfo userInfo) throws Exception {
+		//return getSqlSession().selectList("userInfo.userList", userInfo);
+	//}
 
 }

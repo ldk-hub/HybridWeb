@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import egovframework.rte.ptl.mvc.tags.ui.pagination.PaginationInfo;
+import kr.or.kmaca.login.service.LoginService;
 import kr.or.kmaca.relaxservice.service.RelaxService;
 import kr.or.kmaca.relaxservice.vo.BoardVo;
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
@@ -22,6 +23,9 @@ public class RelaxServiceController {
 	
 	@Autowired
 	private RelaxService relaxService;
+	
+	@Autowired
+	private LoginService loginService;
 
 	@RequestMapping(value = "/getRelaxServiceRosterList")
 	public String getRelaxServiceRosterList(ModelMap map, RelaxServiceVo relaxServiceVo) throws Exception {
@@ -57,12 +61,6 @@ public class RelaxServiceController {
 	public String Introduce(BoardVo BoardVo) throws Exception {
 		return "/relaxService/Introduce";
 	}
-	
-	//고객 정보 목록
-	@RequestMapping(value = "/Client")
-	public String Client(BoardVo BoardVo) throws Exception {
-		return "/relaxService/Client";
-	}
 
 	// 게시글 상세 내용
 	@RequestMapping(value = "/relaxServiceDetail")
@@ -92,4 +90,26 @@ public class RelaxServiceController {
 		relaxService.relaxServiceDelete(relaxServiceVo);
 	}
 	
+		//회원정보 리스트
+		@RequestMapping(value = "/ClientList")
+		public String ClientList(ModelMap map, UserInfo userInfo) throws Exception {
+			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+			UserInfo userInfo1 = (UserInfo) authentication.getPrincipal();
+
+			// 전자정부프레임워크 페이징 처리
+			userInfo.setSeq(userInfo1.getSeq());
+			PaginationInfo paginationInfo = new PaginationInfo();
+			paginationInfo.setCurrentPageNo(Integer.parseInt(userInfo.getPageIndex()));
+			paginationInfo.setRecordCountPerPage(userInfo.getRecordCountPerPage());
+			paginationInfo.setPageSize(5);
+			paginationInfo.setTotalRecordCount(loginService.ClientListCnt(userInfo));
+
+			userInfo.setFirstIndex(paginationInfo.getFirstRecordIndex());
+			userInfo.setLastIndex(paginationInfo.getLastRecordIndex());
+
+			List<RelaxServiceVo> list2 = loginService.ClientList(userInfo);
+			map.put("paginationInfo", paginationInfo);
+			map.put("result", list2);
+			return "/relaxService/ClientList";
+		}
 }
