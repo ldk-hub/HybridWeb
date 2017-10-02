@@ -43,11 +43,13 @@
 		 from MB_MEMB_EMP 
 		 WHERE PERS_USERID = #{userId}
 	</select>
-	
+		
 	<!-- 회원정보 조회(엑셀)-->
-	<select id="ClientList" parameterType="String"
+	<select id="ClientList" parameterType="UserInfo"
 		resultType="UserInfo">
-		SELECT
+		SELECT *
+			FROM (SELECT ROWNUM rnum, A.*
+			FROM (SELECT
             CERT_NO certNo,
             PERS_NM name,
             PERS_USERID username,
@@ -57,6 +59,11 @@
             USER_ST_CD userStCd
         FROM MB_MEMB_EMP
         ORDER BY CERT_NO
+        <![CDATA[
+	                  ) A
+			         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})
+			 WHERE rnum >= #{firstIndex} + 1
+			 ]]>
 	</select>
 	
 	<!--회원정보 카운터 -->
@@ -64,6 +71,33 @@
 	resultType="int">
 		SELECT COUNT(1) AS CNT
 		FROM MB_MEMB_EMP
+	</select>
+	
+	<!-- 엑셀 다운로드 xlsx 100개 개행 -->
+	<select id="excelList" fetchSize="100" resultType="RelaxServiceVo">
+			SELECT 
+				NUM ,
+				NAME ,
+				TITLE , 
+				CONTENT , 
+				READ_COUNT , 
+				WRITE_DATE 
+			FROM TB_BOARD
+				WHERE TITLE LIKE '%'||#{word}||'%' 
+				ORDER BY NUM DESC
+	</select>
+	
+	<select id="getPw" parameterType="String" resultType="UserInfo">
+		SELECT
+            CERT_NO certNo,
+            PERS_NM name,
+            PERS_USERID username,
+            PERS_PSWD password,
+            EMAIL email,
+            USER_ST_CD userStCd
+        FROM MB_MEMB_EMP
+        	WHERE PERS_USERID = #{username} 
+        	and EMAIL = #{email}
 	</select>
 	
 </mapper>

@@ -1,6 +1,7 @@
 package kr.or.kmaca.login.dao.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -44,6 +45,12 @@ public class LoginDaoImpl extends SqlSessionDaoSupport implements LoginDao {
 	@Override
 	public int ClientListCnt(UserInfo userInfo) throws Exception {
 		return getSqlSession().selectOne("userInfo.ClientListCnt", userInfo);
+	}
+
+
+	@Override
+	public String getPw(Map<String, Object> paramMap) throws Exception {
+		return getSqlSession().selectOne("userInfo.getPw", paramMap);
 	}
 	
 	//회원정보 조회

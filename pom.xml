@@ -133,6 +133,14 @@
 			<artifactId>mybatis</artifactId>
 			<version>${org.mybatis.version}</version>
 		</dependency>
+		
+		<!-- java mail -->
+	    <dependency>
+	        <groupId>javax.mail</groupId>
+	        <artifactId>mail</artifactId>
+	        <version>1.4</version>
+	    </dependency>
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -207,6 +215,20 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+		
+		<!-- poi excel -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.16</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.16</version>
+		</dependency>
+
 
 		<!-- Servlet -->
 		<dependency>

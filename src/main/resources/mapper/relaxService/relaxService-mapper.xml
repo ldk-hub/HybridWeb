@@ -17,7 +17,7 @@
 				EMAIL email,
 				USR usr
 			FROM TEST
-			order by SEQ desc
+			order by SEQ 
 	   			 <![CDATA[
 	                  ) A
 			         WHERE ROWNUM <= #{firstIndex} + #{recordCountPerPage})

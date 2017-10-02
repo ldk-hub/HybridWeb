@@ -1,6 +1,7 @@
 package kr.or.kmaca.login.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.ui.ModelMap;
 
@@ -18,5 +19,7 @@ public interface LoginService {
 	public List<RelaxServiceVo> ClientList(UserInfo userInfo)throws Exception;
 	//회원정보 페이징
 	public int ClientListCnt(UserInfo userInfo)throws Exception;
+	//비밀번호 분실 이메일 인증
+	public String getPw(Map<String, Object> paramMap)throws Exception;
 
 }

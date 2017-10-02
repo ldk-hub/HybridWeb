@@ -233,13 +233,50 @@
 							class="btn btn-warning btn-login-submit btn-block m-t-md"
 							value="로그인"/>
 					</div>
+					<div class="form-group"  style="display: right-block;text-align: center;">
+						<button type="button" class="btn btn-warning btn-lg"
+							data-toggle="modal" data-target="#PassModal">비밀번호를 분실하셨나요?</button>
+					</div>
 				</div>
 			</div>
-			<!-- 버튼 -->
+				
+				<!-- 비밀번호 분실정보 모달 -->
+				<div class="modal fade" id="PassModal" tabindex="-1" role="dialog"
+					aria-labelledby="ModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">×</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="ModalLabel">비밀번호 이메일 찾기</h4>
+							</div>
+							<div class="box">
+								<div class="form-group">
+									<label for="userid_acc">아이디 </label>
+									<input name="userid_acc" value=''
+										id="uid" placeholder="ID" type="text" class="form-control" />
+								</div>
+								<div class="form-group">
+									<label for="email_acc">이메일</label> <input name="email_acc"
+										id="mail" value='' placeholder="E-Mail" type="text"
+										class="form-control" />
+								</div>
+								</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-warning" OnClick="">메일 보내기</button>
+								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 버튼 -->
 				<div class="form-group"  style="display: right-block;text-align: center;">
 				<button type="button" class="btn btn-warning btn-lg"
 					data-toggle="modal" data-target="#Modal">회원가입</button>
-					</div>
+				</div>
+				
 				<!-- 모달 팝업 -->
 				<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
 					aria-labelledby="ModalLabel" aria-hidden="true">
@@ -281,7 +318,6 @@
 					</div>
 				</div>
 				</form>
-	</form>
 	</div>
 	<!-- 풋터 -->
 	<footer>

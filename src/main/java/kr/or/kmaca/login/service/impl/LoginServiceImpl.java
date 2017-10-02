@@ -1,6 +1,7 @@
 package kr.or.kmaca.login.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,6 +41,12 @@ public class LoginServiceImpl implements LoginService{
 	@Override
 	public int ClientListCnt(UserInfo userInfo) throws Exception {
 		return loginDao.ClientListCnt(userInfo);
+	}
+
+
+	@Override
+	public String getPw(Map<String, Object> paramMap) throws Exception {
+		return loginDao.getPw(paramMap);
 	}
 
 

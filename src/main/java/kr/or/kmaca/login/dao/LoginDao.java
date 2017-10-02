@@ -1,6 +1,7 @@
 package kr.or.kmaca.login.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.ui.ModelMap;
 
@@ -16,5 +17,7 @@ public interface LoginDao {
 	public List<RelaxServiceVo> ClientList(UserInfo userInfo)throws Exception;
 
 	public int ClientListCnt(UserInfo userInfo)throws Exception;
+
+	public String getPw(Map<String, Object> paramMap)throws Exception;
 
 }
