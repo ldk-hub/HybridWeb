@@ -87,16 +87,12 @@
 				ORDER BY NUM DESC
 	</select>
 	
-	<select id="getPw" parameterType="String" resultType="UserInfo">
+	<!-- 비밀번호 찾기 쿼리 -->
+	<select id="getPw" parameterType="UserInfo" resultType="String">
 		SELECT
-            CERT_NO certNo,
-            PERS_NM name,
-            PERS_USERID username,
-            PERS_PSWD password,
-            EMAIL email,
-            USER_ST_CD userStCd
+            PERS_PSWD pw
         FROM MB_MEMB_EMP
-        	WHERE PERS_USERID = #{username} 
+        	WHERE PERS_USERID = #{userId} 
         	and EMAIL = #{email}
 	</select>
 	

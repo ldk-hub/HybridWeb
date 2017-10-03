@@ -45,13 +45,13 @@
 
 	<tx:annotation-driven proxy-target-class="true" />
 	
-	<!-- gmail -->
+	<!-- gmail로 설정 개인메일경우 외부IP 접근제어 해제해야함 -->
     <bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
         <property name="host" value="smtp.gmail.com" />
         <property name="port" value="587" />
         <property name="defaultEncoding" value="utf-8"/>
-        <property name="username" value="your id@gmail.com" />
-        <property name="password" value="your password" />
+        <property name="username" value="개인이메일주소 또는 회사메일주소기입" />
+        <property name="password" value="비밀번호 쓰세요" />
        
         <property name="javaMailProperties">
             <props>

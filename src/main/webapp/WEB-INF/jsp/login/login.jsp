@@ -176,6 +176,36 @@
 		}
 </script>
 
+<!-- 비밀번호 이메일 찾기 -->
+<script type="text/javascript">	
+		function passEmail(){
+			var	passId = $('#passId').val(),
+			passMail = $('#passMail').val();
+			
+			if(passId ==""){
+				alert("아이디를 입력하시오.");
+				passId.focus();
+				return false;
+			}else if(passMail ==""){
+				alert("이메일 주소를 입력하시오.");
+				passMail.focus();
+				return false;
+			}
+			$.ajax({
+				url : '${pageContext.request.contextPath}/login/sendPw.do',
+				data : {"userId":passId,
+						"email" :passMail,
+						},
+				type : 'POST',
+					success : function(data) {
+						alert("이메일 전송 완료");
+						$('#PassModal').modal('hide')
+					}
+			});
+			
+		}
+</script>
+
 <title>Hybrid Web</title>
 </head>
 <body>
@@ -255,16 +285,16 @@
 								<div class="form-group">
 									<label for="userid_acc">아이디 </label>
 									<input name="userid_acc" value=''
-										id="uid" placeholder="ID" type="text" class="form-control" />
+										id="passId" placeholder="ID" type="text" class="form-control" />
 								</div>
 								<div class="form-group">
 									<label for="email_acc">이메일</label> <input name="email_acc"
-										id="mail" value='' placeholder="E-Mail" type="text"
+										id="passMail" value='' placeholder="E-Mail" type="text"
 										class="form-control" />
 								</div>
 								</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-warning" OnClick="">메일 보내기</button>
+								<button type="button" class="btn btn-warning" OnClick="passEmail()">메일 보내기</button>
 								<button type="button" class="btn btn-warning" data-dismiss="modal">닫기</button>
 							</div>
 						</div>

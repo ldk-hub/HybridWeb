@@ -47,24 +47,28 @@ public class LoginController {
 		return loginService.idCheck(userInfo);
 	}
 	
-	    @RequestMapping("/sendpw.do")
-	    public ModelAndView sendEmailAction (@RequestParam Map<String, Object> paramMap, ModelMap model) throws Exception {
-	        ModelAndView mav;
-	        String id=(String) paramMap.get("id");
-	        String e_mail=(String) paramMap.get("email");
-	        String pw=loginService.getPw(paramMap);
-	        System.out.println(pw);
-	        if(pw!=null) {
-	            email.setContent("비밀번호는 "+pw+" 입니다.");
-	            email.setReceiver(e_mail);
-	            email.setSubject(id+"님 비밀번호 찾기 메일입니다.");
-	            emailSender.SendEmail(email);
-	            mav= new ModelAndView("redirect:/login.do");
-	            return mav;
-	        }else {
-	            mav=new ModelAndView("redirect:/logout.do");
-	            return mav;
-	        }
+	@RequestMapping("/sendPw.do")
+	public ModelAndView sendEmailAction (@RequestParam Map<String, Object> paramMap, ModelMap model) throws Exception {
+	   	ModelAndView mav;
+	    String id=(String) paramMap.get("userId");
+	    String e_mail=(String) paramMap.get("email");
+	    //위의 회원정보를 통해 패스워드 정보 가져옴
+	    String pw=loginService.getPw(paramMap);
+	    System.out.println(pw);
+	    if(pw!=null) {
+	    	//이메일 전달 내용
+	        email.setContent("비밀번호는 "+pw+" 입니다.");
+	        //이메일 전달받을 계정
+	        email.setReceiver(e_mail);
+	        //이메일 전송 제목
+	        email.setSubject(id+"님 비밀번호 찾기 메일입니다.");
+	        //이메일 보낸 사람
+	        emailSender.SendEmail(email);
+	        mav= new ModelAndView("redirect:/login.do");
+	    return mav;
+	    }else {
+	    mav=new ModelAndView("redirect:/logout.do");
+	         return mav;
 	    }
-	
+	}
 }
