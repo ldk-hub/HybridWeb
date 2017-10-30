@@ -74,17 +74,17 @@
 	</select>
 	
 	<!-- 엑셀 다운로드 xlsx 100개 개행 -->
-	<select id="excelList" fetchSize="100" resultType="RelaxServiceVo">
-			SELECT 
-				NUM ,
-				NAME ,
-				TITLE , 
-				CONTENT , 
-				READ_COUNT , 
-				WRITE_DATE 
-			FROM TB_BOARD
-				WHERE TITLE LIKE '%'||#{word}||'%' 
-				ORDER BY NUM DESC
+	<select id="selectExcelList" fetchSize="100" resultType="UserInfo">
+			SELECT
+            CERT_NO certNo,
+            PERS_NM name,
+            PERS_USERID username,
+            PERS_PSWD password,
+            EMAIL email,
+            INT_DT fstdate,
+            USER_ST_CD userStCd
+        FROM MB_MEMB_EMP
+        ORDER BY CERT_NO
 	</select>
 	
 	<!-- 비밀번호 찾기 쿼리 -->

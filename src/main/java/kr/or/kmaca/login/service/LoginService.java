@@ -3,6 +3,8 @@ package kr.or.kmaca.login.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.ui.ModelMap;
 
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
@@ -21,5 +23,7 @@ public interface LoginService {
 	public int ClientListCnt(UserInfo userInfo)throws Exception;
 	//비밀번호 분실 이메일 인증
 	public String getPw(Map<String, Object> paramMap)throws Exception;
+
+	void selectExcelList(HttpServletResponse response) throws Exception;
 
 }

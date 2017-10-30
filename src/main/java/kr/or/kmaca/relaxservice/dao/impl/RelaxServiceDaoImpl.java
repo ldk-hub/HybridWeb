@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import kr.or.kmaca.relaxservice.dao.RelaxServiceDao;
 import kr.or.kmaca.relaxservice.vo.BoardVo;
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
+import kr.or.kmaca.security.vo.UserInfo;
 
 @Repository
 public class RelaxServiceDaoImpl extends SqlSessionDaoSupport implements RelaxServiceDao{
@@ -60,5 +61,6 @@ public class RelaxServiceDaoImpl extends SqlSessionDaoSupport implements RelaxSe
 	public void relaxUpdateViewCnt(RelaxServiceVo relaxServiceVo) throws Exception {
 		getSqlSession().selectOne("relaxService.relaxUpdateViewCnt", relaxServiceVo);
 	}
+
 	
 }

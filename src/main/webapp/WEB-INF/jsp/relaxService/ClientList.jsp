@@ -16,11 +16,14 @@
 	href="${pageContext.request.contextPath}/bootstrap/css/business-casual.css"
 	rel="stylesheet" type="text/css">
 
-<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/ajax.js"></script>
 <script
 	src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 
+<link  href="${pageContext.request.contextPath}/js/jquery-ui-1.12.0/jquery-ui.min.css" rel="stylesheet"/>
+<script src="${pageContext.request.contextPath}/js/jquery-3.1.0.min.js"/></script>
+<script src="${pageContext.request.contextPath}/js/jquery-ui-1.12.0/jquery-ui.min.js"/></script>
+<script src="${pageContext.request.contextPath}/js/jquery.fileDownload.js"/></script>
 
 <script type="text/javascript">
 	function movePaging(pageNo) {
@@ -29,34 +32,6 @@
 		document.frm.submit();
 	}
 </script>
-<!-- 엑셀 다운로드  xlsx 로딩바 포함 -->
-<script type="text/javascript">
-		$(function() {
-			$("#btn-excel").on("click", function() {
-				var $preparingFileModal = $("#preparing-file-modal");
-				$preparingFileModal.dialog({
-					modal : true
-				});
-				$("#progressbar").progressbar({
-					value : false
-				});
-				// 다운로드 경로 수정
-				$.fileDownload("/pentode/excel.do", {
-					successCallback : function(url) {
-						$preparingFileModal.dialog('close');
-					},
-					failCallback : function(responseHtml, url) {
-						$preparingFileModal.dialog('close');
-						$("#error-modal").dialog({
-							modal : true
-						});
-					}
-				});
-				// 버튼의 원래 클릭 이벤트를 중지 시키기 위해 필요
-				return false;
-			});
-		});
-	</script>
 
 <title>Hybrid Web</title>
 </head>
@@ -141,22 +116,51 @@
 			</div>
 			</div>
 			</div>
+	<!-- 엑셀 다운로드  -->
+	<script type="text/javascript">
+		$(function() {
+			$("#btn-excel").on("click", function() {
+				var $preparingFileModal = $("#preparing-file-modal");
+				$preparingFileModal.dialog({
+					modal : true
+				});
+				$("#progressbar").progressbar({
+					value : false
+				});
+				$.fileDownload("../login/excel.do", {
+					successCallback : function(url) {
+						$preparingFileModal.dialog('close');
+					},
+					failCallback : function(responseHtml, url) {
+						$preparingFileModal.dialog('close');
+						$("#error-modal").dialog({
+							modal : true
+						});
+					}
+				}); // 버튼의 원래 클릭 이벤트를 중지 시키기 위해 필요합니다. 
+				return false;
+			});
+		});
+	</script>
 	
-			<!-- 파일 생성중 보여질 진행막대를 포함하고 있는 다이얼로그 
-			<button id="btn-excel">엑셀 다운로드</button>
-			
-			<div title="Data Download" id="preparing-file-modal"
-				style="display: none;">
-				<div id="progressbar"
-					style="width: 100%; height: 22px; margin-top: 20px;"></div>
-			</div> -->
-
-			<!-- 버튼-->
-			<div class="form-group"
+	<div class="form-group"
 				style="display: right-block; text-align: center;">
-				<button type="button" class="btn btn-warning btn-lg"
-					data-toggle="modal" data-target="#">엑셀 다운로드</button>
-			</div> 
+	<button type="button" class="btn btn-warning btn-lg" id="btn-excel">엑셀
+		다운로드</button>
+		</div> 
+	<!-- 파일 생성중 보여질 진행막대를 포함하고 있는 다이얼로그 -->
+	<div title="Data Download" id="preparing-file-modal"
+		style="display: none;">
+		<div id="progressbar"
+			style="width: 100%; height: 22px; margin-top: 20px;"></div>
+	</div>
+
+	<!-- 에러발생시 보여질 메세지 다이얼로그 -->
+	<div title="Error" id="error-modal" style="display: none;">
+		<p>생성실패.</p>
+	</div>
+
+			
 
 		<!-- 풋터 -->
 		<footer class="footer">

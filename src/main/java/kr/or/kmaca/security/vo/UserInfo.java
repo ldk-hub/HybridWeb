@@ -170,4 +170,9 @@ private String userId;
   {
     this.authorities = authorities;
   }
+  @Override
+	public String toString() {
+		return "UserInfo [seq=" + seq + ", name=" + name + ", username=" + username + ", email=" + email + ", certNo="
+				+ certNo + ", fstdate=" + fstdate + "]";
+	}
 }

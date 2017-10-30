@@ -10,11 +10,12 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
    
     public class EmailSender  {
-         
+        //자바에서 지원하는 메일센더  
         @Autowired
         protected JavaMailSender  mailSender;
+        
         public void SendEmail(Email email) throws Exception {
-             
+            //getter setter의 정보를 get해서 메일을 전송
             MimeMessage msg = mailSender.createMimeMessage();
             try {
                 msg.setSubject(email.getSubject());
@@ -26,6 +27,7 @@ import org.springframework.mail.javamail.JavaMailSender;
                 e.printStackTrace();
             }
             try {
+            	//익셉션오류 없을 시 메일 전송
                 mailSender.send(msg);
             }catch(MailException e) {
                 System.out.println("MailException발생");

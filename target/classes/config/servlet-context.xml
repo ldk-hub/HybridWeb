@@ -67,5 +67,7 @@
     </bean>
     <bean id="emailSender" class="kr.or.kmaca.email.EmailSender">
     </bean>
+    
+    
 
 </beans>

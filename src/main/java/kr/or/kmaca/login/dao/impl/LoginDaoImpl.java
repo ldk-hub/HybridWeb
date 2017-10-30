@@ -52,6 +52,12 @@ public class LoginDaoImpl extends SqlSessionDaoSupport implements LoginDao {
 	public String getPw(Map<String, Object> paramMap) throws Exception {
 		return getSqlSession().selectOne("userInfo.getPw", paramMap);
 	}
+
+
+	@Override
+	public List<UserInfo> selectExcelList(UserInfo userInfo) throws Exception {
+		return getSqlSession().selectList("userInfo.selectExcelList", userInfo);
+	}
 	
 	//회원정보 조회
 	//public String userList(UserInfo userInfo) throws Exception {

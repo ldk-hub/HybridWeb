@@ -2,6 +2,8 @@ package kr.or.kmaca.relaxservice.dao;
 
 import java.util.List;
 
+
+
 import kr.or.kmaca.relaxservice.vo.BoardVo;
 import kr.or.kmaca.relaxservice.vo.RelaxServiceVo;
 
@@ -24,4 +26,5 @@ public interface RelaxServiceDao {
 	public void relaxServiceDelete(RelaxServiceVo relaxServiceVo)throws Exception;
 	
 	public void relaxUpdateViewCnt(RelaxServiceVo relaxServiceVo)throws Exception;
+	
 }

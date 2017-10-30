@@ -2,6 +2,8 @@ package kr.or.kmaca.login.controller;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -71,4 +73,10 @@ public class LoginController {
 	         return mav;
 	    }
 	}
+	
+	//엑셀 다운로드
+		@RequestMapping(value = "/excel.do")
+		public void excel(HttpServletResponse response) throws Exception {
+				loginService.selectExcelList(response);
+			}
 }
