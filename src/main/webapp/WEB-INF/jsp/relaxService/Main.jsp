@@ -23,13 +23,36 @@
 	src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
 <script type="text/javascript" src="../se2/js/service/HuskyEZCreator.js"
 	charset="utf-8"></script>
+	<!-- 풀캘린더 적용 -->
+	<link href='${pageContext.request.contextPath}/fullcalendar.css' rel='stylesheet' />
+	<link href='${pageContext.request.contextPath}/fullcalendar.min.css' rel='stylesheet' /> 
+	<link href='${pageContext.request.contextPath}/fullcalendar.print.min.css' rel='stylesheet' media='print' /> 
+	<script src='${pageContext.request.contextPath}/lib/moment.min.js'></script> 
+	<script src='${pageContext.request.contextPath}/lib/jquery.min.js'></script> 
+	<script src='${pageContext.request.contextPath}/fullcalendar.min.js'></script>
+
+	
 	<!-- 메인 캐러셀 롤링 설정 -->
 	<script>
 	$('.carousel').carousel({
 		interval : 2000
 	})
 	</script>
-			
+
+
+<script> $(document).ready(function() { $('#calendar').fullCalendar({ 
+		header: { left: 'prev,next today', center:
+			'title', right: 'month,basicWeek,basicDay' },
+			defaultDate: new Date(), navLinks: true,
+			// can click day/week names to navigate views 
+			editable: false, eventLimit: true,
+			// allow "more" link when too many events
+			events: [ { title: 'All Day Event', start: '2017-04-01' },
+			                                                    { title: 'Long Event', start: '2017-04-07', 
+				end: '2017-04-10' }, { id: 999, title: 'Repeating Event', start: '2017-04-09T16:00:00' },
+				~~ 생략 ~~ ] }); }); </script>
+
+
 <title>Hybrid Web</title>
 </head>
 <body>

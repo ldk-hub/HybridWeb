@@ -201,6 +201,7 @@
 									height : 250
 								});
 							</script>
+							
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-warning" OnClick="board_insert()">저장</button>
