@@ -53,9 +53,16 @@ public class RelaxServiceImpl implements RelaxService{
 		return relaxServiceDao.relaxServiceSearch(relaxServiceVo);
 	}
 
-
+		//게시판 삽입 반복 insert 추가개발
 	@Override
 	public List<RelaxServiceVo> relaxServiceInsert(RelaxServiceVo relaxServiceVo) throws Exception {
+		
+		System.out.println("@@@@@@@@@@@@@@2"+relaxServiceVo.toString());
+		/*for(i=0;i<relaxServiceVo.length; i++;){
+			
+		}*/
+		
+		
 		return relaxServiceDao.relaxServiceInsert(relaxServiceVo);
 	}
 

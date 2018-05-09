@@ -23,40 +23,30 @@
 	src="//apis.daum.net/maps/maps3.js?apikey=9f62d9b2cb6f39cf29cf2b959862c8eb"></script>
 <script type="text/javascript" src="../se2/js/service/HuskyEZCreator.js"
 	charset="utf-8"></script>
+	
+	
 	<!-- 풀캘린더 적용 -->
-	<link href='${pageContext.request.contextPath}/fullcalendar.css' rel='stylesheet' />
-	<link href='${pageContext.request.contextPath}/fullcalendar.min.css' rel='stylesheet' /> 
-	<link href='${pageContext.request.contextPath}/fullcalendar.print.min.css' rel='stylesheet' media='print' /> 
 	<script src='${pageContext.request.contextPath}/lib/moment.min.js'></script> 
-	<script src='${pageContext.request.contextPath}/lib/jquery.min.js'></script> 
-	<script src='${pageContext.request.contextPath}/fullcalendar.min.js'></script>
-
+	<link href='${pageContext.request.contextPath}/fullcalendar/fullcalendar.css' rel='stylesheet' />
+	<link href='${pageContext.request.contextPath}/fullcalendar/fullcalendar.min.css' rel='stylesheet' /> 
+	<link href='${pageContext.request.contextPath}/fullcalendar/fullcalendar.print.css' rel='stylesheet' /> 
+	<link href='${pageContext.request.contextPath}/fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print' /> 
+	<link rel='stylesheet' href='${pageContext.request.contextPath}/lib/jquery-ui.min.js' />
+	<script src='${pageContext.request.contextPath}/fullcalendar/fullcalendar.js'></script>
+	<script src='${pageContext.request.contextPath}/lib/jquery.min.js'></script>
+	
 	
 	<!-- 메인 캐러셀 롤링 설정 -->
 	<script>
 	$('.carousel').carousel({
-		interval : 2000
-	})
+		  interval: 2000
+		})
 	</script>
 
-
-<script> $(document).ready(function() { $('#calendar').fullCalendar({ 
-		header: { left: 'prev,next today', center:
-			'title', right: 'month,basicWeek,basicDay' },
-			defaultDate: new Date(), navLinks: true,
-			// can click day/week names to navigate views 
-			editable: false, eventLimit: true,
-			// allow "more" link when too many events
-			events: [ { title: 'All Day Event', start: '2017-04-01' },
-			                                                    { title: 'Long Event', start: '2017-04-07', 
-				end: '2017-04-10' }, { id: 999, title: 'Repeating Event', start: '2017-04-09T16:00:00' },
-				~~ 생략 ~~ ] }); }); </script>
-
-
-<title>Hybrid Web</title>
+<title>거래 문의 사이트</title>
 </head>
 <body>
-	<div class="brand">Hybrid Web</div>
+	<div class="brand">Main Page</div>
 	<div class="contentwrap">
 		<nav class="navbar navbar-default" role="navigation">
 		<div class="container-fluid">
@@ -141,6 +131,9 @@
 							data-slide="next"> <span class="icon-next"></span></a>
 					</div>
 				</div>
+				
+				
+				
 				<h2 class="brand-before">
 					<small>Welcome to</small>
 				</h2>
@@ -148,7 +141,102 @@
 			</div>
 		</div>
 	</div>
-		<!-- 풋터 -->
+	
+
+ <script type='text/javascript'>
+var calendar = null;
+var events = null;
+
+events = [
+    {
+        title: 'Long Event',
+        start: new Date(y, m, d-5),
+        end: new Date(y, m, d-2),
+        color: 'red',
+        backgroundColor: 'yellow',
+        borderColor: 'blue',
+        textColor: 'green',
+
+        uid: 'event_0003',                     //--- Customize한 속성
+        flagCheckbox: true                     //--- Customize한 속성
+    }
+];
+
+$(document).ready(function() {
+	calendar = $('#calendar').fullCalendar({
+		header: {
+			left: 'prev,next today',
+			center: 'title',
+			right: 'month,agendaWeek,agendaDay'
+		},
+		selectable: true,
+		selectHelper: true,
+		dayClick: function(date, allDay, jsEvent, view) {
+			window.alert("dayClick");
+			calendar.fullCalendar('unselect');
+		},
+		eventClick: function(calEvent, jsEvent, view) {
+			window.alert("eventClick");
+		},
+		select: function(start, end, allDay) {
+			var title = prompt('Event Title:');
+			if (title) {
+				calendar.fullCalendar('renderEvent',
+					{
+						title: title,
+						start: start,
+						end: end,
+						allDay: allDay
+					},
+					true // make the event "stick"
+				);
+			}
+			calendar.fullCalendar('unselect');
+		},
+		eventMouseover: function( event, jsEvent, view) { 
+			window.alert("eventMouseover");
+		},
+		eventMouseout: function( event, jsEvent, view) { 
+			window.alert("eventMouseout");
+		},
+		eventDrop: function( event, dayDelta, minuteDelta, allDay, revertFunc, jsEvent, ui, view ) {
+			window.alert("eventDrop");
+		},
+		eventResize:function( event, dayDelta, minuteDelta, revertFunc, jsEvent, ui, view ) { 
+			window.alert("eventResize");
+		},
+ 		editable: true,
+ 		events: events,
+		firstDay: 0,				//---	0. 일요일
+		weekends: true,
+		allDaySlot: true,
+		allDayText: '종일',
+		axisFormat : 'hh:mm tt',
+		slotMinutes: 30,
+		defaultEventMinutes: 60,
+		firstHour: 9,
+		timeFormat: 'hh:mm tt',
+		columnFormat: {month: 'ddd', week: 'M/d ddd', day: 'M/d dddd'},
+		titleFormat: {month: 'yyyy년 M월', week: 'yyyy년 M월 d일{ — [yyyy년] [M월] d일 }', day: 'yyy y년 M월 d일 dddd'},
+		monthNames: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'] ,
+		monthNamesShort: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월'], 
+		dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+ 		dayNamesShort: ['일', '월', '화', '수', '목', '금', '토'],
+ 		buttonText: {today: '오늘', month: '월', week: '주', day: '일'}
+	});
+});
+</script> 
+			<!-- 풀캘린더 -->
+			<div id="calendar"></div>
+			<div class="container">
+		<div class="box">
+		
+		
+			
+		</div>
+	</div>
+
+	<!-- 풋터 -->
 		<footer>
 			<div class="container">
 				<div class="row">

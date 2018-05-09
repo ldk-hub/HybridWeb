@@ -33,7 +33,7 @@
 	}
 </script>
 
-<title>Hybrid Web</title>
+<title>거래 문의 사이트</title>
 </head>
 <body>
 	<div class="brand">Hybrid Web</div>
