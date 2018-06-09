@@ -12,14 +12,14 @@
 			PERS_PSWD password,
 			EMAIL email,
 			USER_ST_CD userStCd
-		FROM MB_MEMB_EMP
+		FROM HW_USER
 		WHERE PERS_USERID = #{username}
 	</select>
 
 	<!--회원가입 -->
 	<insert id="insertId" parameterType="String">
 		insert into
-		MB_MEMB_EMP(CERT_NO,
+		HW_USER(CERT_NO,
 				PERS_NM,
 				PERS_USERID,
 				PERS_PSWD,
@@ -40,7 +40,7 @@
 		resultType="UserInfo">
 		select 
 			PERS_USERID 
-		 from MB_MEMB_EMP 
+		 from HW_USER 
 		 WHERE PERS_USERID = #{userId}
 	</select>
 		
@@ -57,7 +57,7 @@
             EMAIL email,
             INT_DT fstdate,
             USER_ST_CD userStCd
-        FROM MB_MEMB_EMP
+        FROM HW_USER
         ORDER BY CERT_NO
         <![CDATA[
 	                  ) A
@@ -70,7 +70,7 @@
 	<select id="ClientListCnt" parameterType="UserInfo"
 	resultType="int">
 		SELECT COUNT(1) AS CNT
-		FROM MB_MEMB_EMP
+		FROM HW_USER
 	</select>
 	
 	<!-- 엑셀 다운로드 xlsx 100개 개행 -->
@@ -83,7 +83,7 @@
             EMAIL email,
             INT_DT fstdate,
             USER_ST_CD userStCd
-        FROM MB_MEMB_EMP
+        FROM HW_USER
         ORDER BY CERT_NO
 	</select>
 	
@@ -91,7 +91,7 @@
 	<select id="getPw" parameterType="UserInfo" resultType="String">
 		SELECT
             PERS_PSWD pw
-        FROM MB_MEMB_EMP
+        FROM HW_USER
         	WHERE PERS_USERID = #{userId} 
         	and EMAIL = #{email}
 	</select>

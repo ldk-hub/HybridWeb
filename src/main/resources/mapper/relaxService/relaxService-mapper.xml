@@ -16,7 +16,7 @@
 				USER_CNT usrCnt,
 				EMAIL email,
 				USR usr
-			FROM TEST
+			FROM HW_BOARD
 			order by SEQ 
 	   			 <![CDATA[
 	                  ) A
@@ -29,7 +29,7 @@
 	<select id="relaxServiceRosterCnt" parameterType="RelaxServiceVo"
 	resultType="int">
 		SELECT COUNT(1) AS CNT
-		FROM TEST
+		FROM HW_BOARD
 	</select>
 	
 	<!-- 게시글 상세조회 -->
@@ -44,7 +44,7 @@
 			USER_CNT usrCnt,
 			EMAIL email,
 			USR usr
-		FROM TEST
+		FROM HW_BOARD
 		WHERE SEQ = #{seq}
 	</select>
 
@@ -60,7 +60,7 @@
 			USER_CNT usrCnt,
 			EMAIL email,
 			USR usr
-		FROM TEST
+		FROM HW_BOARD
 		WHERE 1=1
 		<if test="searchBox != null and searchBox != ''">
  -			<if test="searchCategory == 'title'">
@@ -74,7 +74,7 @@
 
 	<!-- 게시글 삽입 -->
 	<insert id="relaxServiceInsert" parameterType="RelaxServiceVo">
-	INSERT INTO TEST (SEQ,
+	INSERT INTO HW_BOARD (SEQ,
                   TITLE,
                   CONTENT,
                   INT_DATE,
@@ -88,13 +88,13 @@
 	
 	<!-- 게시글 삭제 -->
 	<delete id="relaxServiceDelete" parameterType="RelaxServiceVo">
-	DELETE FROM TEST WHERE SEQ = #{seq}
+	DELETE FROM HW_BOARD WHERE SEQ = #{seq}
 	and USR = #{usr} 
 	</delete>
 	
 	<!-- 조회수 증가 -->
 	<update id="relaxUpdateViewCnt" parameterType="RelaxServiceVo">
-	UPDATE TEST SET USER_CNT = NVL(USER_CNT, 0) + 1 WHERE
+	UPDATE HW_BOARD SET USER_CNT = NVL(USER_CNT, 0) + 1 WHERE
 	SEQ = #{seq} 
 	</update>
 
