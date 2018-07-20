@@ -1,6 +1,7 @@
-# Spring ±â¹Ý ÇÏÀÌºê¸®µå À¥ ½Ã½ºÅÛ
+# Spring ê¸°ë°˜ í•˜ì´ë¸Œë¦¬ë“œ ì›¹ ì‹œìŠ¤í…œ
+ê°œë°œí™˜ê²½: JAVA, Spring framework MVC, mybatis, oracle, bootstrap, jsp, jquery, ajax, javascript ë“±
 
-### PC¹öÀü
+### PCë²„ì „
 
 ![pc](https://user-images.githubusercontent.com/12209348/40291632-053439c2-5d01-11e8-8506-63d44101d658.png)
 ![pc](https://user-images.githubusercontent.com/12209348/40291634-05a1f0fc-5d01-11e8-9553-066ffe2d7264.png)
@@ -13,7 +14,7 @@
 ![pc](https://user-images.githubusercontent.com/12209348/40291628-049fabb8-5d01-11e8-8a33-e49f307f65aa.PNG)
 ![pc](https://user-images.githubusercontent.com/12209348/40291629-04d5ed4a-5d01-11e8-9550-f31a3311c4ba.png)
 
-### ¸ð¹ÙÀÏ ¹öÀü
+### ëª¨ë°”ì¼ ë²„ì „
 <img src="https://user-images.githubusercontent.com/12209348/40291624-040ea1c2-5d01-11e8-9bf7-06da4e53b160.png" height="50%" width="50%">
 <img src="https://user-images.githubusercontent.com/12209348/40291626-046ed3ee-5d01-11e8-992c-b38c13852027.PNG" height="50%" width="50%">
 <img src="https://user-images.githubusercontent.com/12209348/40291637-063fa946-5d01-11e8-9048-57d5c183dc8e.PNG" height="50%" width="50%">
@@ -26,24 +27,20 @@
 <img src="https://user-images.githubusercontent.com/12209348/40291631-0507b820-5d01-11e8-8a49-66ed38d90804.png" height="50%" width="50%">
 <img src="https://user-images.githubusercontent.com/12209348/40291646-081d55f6-5d01-11e8-9405-06130866afc0.png" height="50%" width="50%">
 
-## °³¹ß ¾÷µ¥ÀÌÆ® ¸®½ºÆ®
-Ç®Ä¶¸°´õ ¼öÁ¤, °Ô½Ã±Û UTF-8¹ÙÀÌÆ® ¼ö Ã¼Å© ¼öÁ¤<br>
-Ç®Ä¶¸°´õ API Àû¿ë, °Ô½Ã±Û ¾²±â ¹ÙÀÌÆ® ¼ö Ã¼Å© Ãß°¡ <br>
-Ç®Ä¶¸°´õ Àû¿ë ¹× ¿¢¼¿ ´Ù¿î·Îµå ¼öÁ¤<br>
-¿¢¼¿ ´Ù¿î·Îµå ·ÎÁ÷ ¿µ¿ªÀÌµ¿ ¹× ¼Ò½º ¼öÁ¤<br>
-ºñ¹Ð¹øÈ£ Ã£±â SMTP Àü¼Û¿ë bean °èÁ¤Á¤º¸ ¼öÁ¤ ,ºñ¹Ð¹øÈ£ ºÐ½Ç½Ã ÀÌ¸ÞÀÏ Ã£±â ¿Ï·á<br>
-SMTP ºñ¹Ð¹øÈ£ ºÐ½Ç(ÇÁ·ÐÆ®·ÎÁ÷ ¼öÁ¤), ¿¢¼¿ ´Ù¿î·Îµå(·Î¿ì¼³Á¤,Äõ¸®¹® µî)<br>
-¿¢¼¿ ´Ù¿î·Îµå ½ºÅ©¸³Æ® Ãß°¡, È¸¿øÁ¤º¸¸®½ºÆ® ¼Ò½º ¼öÁ¤, ¿¢¼¿ ´Ù¿î·Îµå ·ÎÁ÷<br>
-È¸¿øÁ¤º¸ °Ô½ÃÆÇ »ý¼º, È¸¿øÁ¤º¸ ÆäÀÌÁö ÆäÀÌÂ¡Ã³¸®, poi ¶óÀÌºê·¯¸® Àû¿ë,<br>
-¾ÆÀÌµð Áßº¹Ã¼Å© ,Á¤±ÔÇ¥Çö½Ä,°ü¸®ÀÚ ±â´É °­È­ (È¸¿ø¸®½ºÆ® Á¶È¸, ¿¢¼¿ÆÄÀÏ ´Ù¿î·Îµå)<br>
-°Ô½ÃÆÇ ¸®½ºÆ® Àç°»½Å(¼öÁ¤),Ä«Å×°í¸®º° Á¶È¸,·Î±×ÀÎ °èÁ¤ °Ô½Ã±Û¸¸ »èÁ¦Ã³¸®(¼öÁ¤),Á¶È¸¼ö(¼öÁ¤)<br>
-°Ô½ÃÆÇ¼öÁ¤(Äõ¸®,ÇÁ·ÐÆ®),¸ð´ÞÃ¢ ´Ý°í ¸®½ºÆ® °»½Å,°Ô½Ã±Û »ðÀÔ textarea, ÅÂ±× Á¦°Å<br>
-ÅèÄ¹ ÄÁÅØ½ºÆ® º¯°æ,½ÃÅ¥¸®Æ¼ ·Î±×¾Æ¿ô ¼¼¼ÇÃ³¸®,½ÃÅ¥¸®Æ¼ ·Î±×ÀÎ ¿¡·¯¸®ÅÏ ¼öÁ¤,°Ô½Ã±Û »ðÀÔ, °Ô½Ã±Û»èÁ¦<br>
-ºñ¹Ð¹øÈ£ Á¤±Ô½Ä,¾ÆÀÌµð Áßº¹Ã¼Å©,°Ô½Ã±Û »ðÀÔ<br>
-ÇÁ·ÎÁ§Æ®¸í ¼öÁ¤,È¸¿ø°¡ÀÔ(Áßº¹Ã¼Å©,Á¤±Ô½Ä)¿Ï·á<br>
-ÀüÀÚÁ¤ºÎ ÇÁ·¹ÀÓ¿öÅ© ÆäÀÌÂ¡ Ã³¸®,ÄÚµåÁ¤¸® ,ÁÖ¼®Á¤¸®<br>
-DB °Ô½ÃÆÇ Å×ÀÌºí º¯°æ,°Ô½Ã±Û »ó¼¼ ÆäÀÌÁö,È¸¿ø°¡ÀÔ,·Ñ¸µ ÀÌº¥Æ®<br>
-
-## Ãß°¡ °³¹ß ¿¹Á¤ ³»¿ª
-°Ô½Ã±Û ·ÎÁ÷ ´ä±Û,µ¡±Û °èÃþÇü °Ô½ÃÆÇ Ãß°¡ °³¹ß<br>
-(Á¢±ÙÁ¦¾î)´Ù¸¥ ÇÇ½Ã¿¡¼­ µ¿ÀÏ¾ÆÀÌµð ·Î±×ÀÎ ½Ãµµ alert(¼¼¼ÇÁ¾·á);- ÆÄÆø,ie,Å©·ÒÀ¸·Î Å×½ºÆ®
+## ê°œë°œ ì—…ë°ì´íŠ¸ ë¦¬ìŠ¤íŠ¸
+í’€ìº˜ë¦°ë” ìˆ˜ì •, ê²Œì‹œê¸€ UTF-8ë°”ì´íŠ¸ ìˆ˜ ì²´í¬ ìˆ˜ì •<br>
+í’€ìº˜ë¦°ë” API ì ìš©, ê²Œì‹œê¸€ ì“°ê¸° ë°”ì´íŠ¸ ìˆ˜ ì²´í¬ ì¶”ê°€ <br>
+í’€ìº˜ë¦°ë” ì ìš© ë° ì—‘ì…€ ë‹¤ìš´ë¡œë“œ ìˆ˜ì •<br>
+ì—‘ì…€ ë‹¤ìš´ë¡œë“œ ë¡œì§ ì˜ì—­ì´ë™ ë° ì†ŒìŠ¤ ìˆ˜ì •<br>
+ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° SMTP ì „ì†¡ìš© bean ê³„ì •ì •ë³´ ìˆ˜ì • ,ë¹„ë°€ë²ˆí˜¸ ë¶„ì‹¤ì‹œ ì´ë©”ì¼ ì°¾ê¸° ì™„ë£Œ<br>
+SMTP ë¹„ë°€ë²ˆí˜¸ ë¶„ì‹¤(í”„ë¡ íŠ¸ë¡œì§ ìˆ˜ì •), ì—‘ì…€ ë‹¤ìš´ë¡œë“œ(ë¡œìš°ì„¤ì •,ì¿¼ë¦¬ë¬¸ ë“±)<br>
+ì—‘ì…€ ë‹¤ìš´ë¡œë“œ ìŠ¤í¬ë¦½íŠ¸ ì¶”ê°€, íšŒì›ì •ë³´ë¦¬ìŠ¤íŠ¸ ì†ŒìŠ¤ ìˆ˜ì •, ì—‘ì…€ ë‹¤ìš´ë¡œë“œ ë¡œì§<br>
+íšŒì›ì •ë³´ ê²Œì‹œíŒ ìƒì„±, íšŒì›ì •ë³´ íŽ˜ì´ì§€ íŽ˜ì´ì§•ì²˜ë¦¬, poi ë¼ì´ë¸ŒëŸ¬ë¦¬ ì ìš©,<br>
+ì•„ì´ë”” ì¤‘ë³µì²´í¬ ,ì •ê·œí‘œí˜„ì‹,ê´€ë¦¬ìž ê¸°ëŠ¥ ê°•í™” (íšŒì›ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ, ì—‘ì…€íŒŒì¼ ë‹¤ìš´ë¡œë“œ)<br>
+ê²Œì‹œíŒ ë¦¬ìŠ¤íŠ¸ ìž¬ê°±ì‹ (ìˆ˜ì •),ì¹´í…Œê³ ë¦¬ë³„ ì¡°íšŒ,ë¡œê·¸ì¸ ê³„ì • ê²Œì‹œê¸€ë§Œ ì‚­ì œì²˜ë¦¬(ìˆ˜ì •),ì¡°íšŒìˆ˜(ìˆ˜ì •)<br>
+ê²Œì‹œíŒìˆ˜ì •(ì¿¼ë¦¬,í”„ë¡ íŠ¸),ëª¨ë‹¬ì°½ ë‹«ê³  ë¦¬ìŠ¤íŠ¸ ê°±ì‹ ,ê²Œì‹œê¸€ ì‚½ìž… textarea, íƒœê·¸ ì œê±°<br>
+í†°ìº£ ì»¨í…ìŠ¤íŠ¸ ë³€ê²½,ì‹œíë¦¬í‹° ë¡œê·¸ì•„ì›ƒ ì„¸ì…˜ì²˜ë¦¬,ì‹œíë¦¬í‹° ë¡œê·¸ì¸ ì—ëŸ¬ë¦¬í„´ ìˆ˜ì •,ê²Œì‹œê¸€ ì‚½ìž…, ê²Œì‹œê¸€ì‚­ì œ<br>
+ë¹„ë°€ë²ˆí˜¸ ì •ê·œì‹,ì•„ì´ë”” ì¤‘ë³µì²´í¬,ê²Œì‹œê¸€ ì‚½ìž…<br>
+í”„ë¡œì íŠ¸ëª… ìˆ˜ì •,íšŒì›ê°€ìž…(ì¤‘ë³µì²´í¬,ì •ê·œì‹)ì™„ë£Œ<br>
+ì „ìžì •ë¶€ í”„ë ˆìž„ì›Œí¬ íŽ˜ì´ì§• ì²˜ë¦¬,ì½”ë“œì •ë¦¬ ,ì£¼ì„ì •ë¦¬<br>
+DB ê²Œì‹œíŒ í…Œì´ë¸” ë³€ê²½,ê²Œì‹œê¸€ ìƒì„¸ íŽ˜ì´ì§€,íšŒì›ê°€ìž…,ë¡¤ë§ ì´ë²¤íŠ¸<br>
