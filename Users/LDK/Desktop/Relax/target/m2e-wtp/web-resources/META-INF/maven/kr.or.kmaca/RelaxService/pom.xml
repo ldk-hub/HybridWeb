@@ -13,7 +13,7 @@
 		<org.slf4j-version>1.7.12</org.slf4j-version>
 		<spring.batch.version>2.2.7.RELEASE</spring.batch.version>
 		<org.mybatis.version>3.2.8</org.mybatis.version>
-		<spring.security.version>3.2.8.RELEASE</spring.security.version>
+		<spring.security.version>5.1.6.RELEASE</spring.security.version>
 		<org.mybatis.spring.version>1.2.2</org.mybatis.spring.version>
 		<egovframework.rte.version>2.7.0</egovframework.rte.version>
 	</properties>
